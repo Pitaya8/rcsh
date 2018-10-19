@@ -1,0 +1,235 @@
+html,body{
+	height: 100%;
+}
+body,ul{
+	margin: 0;
+	padding: 0;
+}
+input{
+	border: 0;
+	padding: 0;
+}
+ul>li{
+	list-style: none;
+}
+dd{
+	margin-left: 0;
+}
+a, body {
+    font: 12px/1.5 'Microsoft YaHei';
+}
+a:active, a:focus, a:link, a:visited {
+    text-decoration: none;
+    outline: 0;
+    -moz-outline: 0;
+}
+#wapper{
+	/*min-width: 810px;*/
+	height: 100%;
+	min-height: 600px;
+	position: relative;
+}
+#head{
+	height: 100%;
+	position: relative;
+	padding-bottom: 0;
+	text-align: center;
+	min-height: 600px;
+}
+.s-form{
+	position: relative;
+	top: 42%;
+}
+.s-form-wapper{
+	position: relative;
+	top: -191px;
+}
+.serachBody{
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+}
+#form{
+	margin: 20px auto 0;
+    width: 641px;
+    text-align: left;
+    z-index: 100;
+}
+.s_ipt_wr {
+    border: 1px solid #b6b6b6;
+    background: #fff;
+    display: inline-block;
+    vertical-align: top;
+    width: 530px;
+    margin-right: 0;
+    border-right-width: 0;
+    border-color: #37a0db transparent #37a0db #37a0db;
+    overflow: hidden;
+    position: relative;
+}
+.s_ipt {
+	position: relative;
+    width: 526px;
+    height: 28px;
+    font: 16px/18px arial;
+    line-height: 22px\9;
+    margin: 6px 0 0 7px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+}
+.s_btn_wr {
+    margin-left: -8px;
+}
+.s_btn {
+    width: 80px;
+    height: 36px;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    background: #37a0db;
+    border-bottom: 1px solid #37a0db;
+    outline: medium;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+.soolifeBox{
+	margin-top: 48px;
+	position: relative;
+}
+.msoolifeBox{
+	color: gray;
+}
+.msoolifeBox img{
+	border: 1px solid #DCDCDC;
+	width: 100px;
+}
+.footerdiv {
+	position:absolute;
+	bottom: 20px;
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.footerdiv .footer {
+	width:1200px;
+	margin:0 auto;
+	overflow:hidden;
+	text-align:center;
+	padding:5px 0 20px
+}
+.footerdiv .footer p {
+	line-height:25px;
+	color:#999;
+	margin-bottom:0;
+	margin-top:0
+}
+.footerdiv .footer p a {
+	color:#999
+}
+.footerdiv .footer p a:hover {
+	color:#F6AB00
+}
+.footerdiv .foot-s {
+	min-width:1200px;
+	height:60px;
+	background:#3B87EE;
+	padding-top:8px;
+	padding-bottom:8px;
+	margin:20px 0 25px
+}
+.footerdiv .foot-s a {
+	float:left;
+	height:46px;
+	background:url(https://static.soolife.cn/asset/img/footer.png) no-repeat;
+	text-indent:-100%;
+	overflow:hidden;
+	color: #37A0DB;
+}
+.footerdiv .foot-s .s1 {
+	width:338px;
+	background-position:0 1px
+}
+.footerdiv .foot-s .s2 {
+	margin-left:41px;
+	width:470px;
+	background-position:0 -44px
+}
+.footerdiv .foot-s .s3 {
+	margin-left:41px;
+	width:310px;
+	background-position:0 -92px
+}
+.mainBox{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.searchcombox {
+	position:absolute;
+	z-index:200;
+	background-color:#fff;
+	width:513px;
+	display:none;
+	border:1px solid #e6e6e6;
+	box-shadow:0 1px 5px rgba(0,0,0,.2);
+	padding:8px
+}
+.searchcombox dl {
+	margin:0
+}
+.searchcombox dl .rightflo {
+	color:#999
+}
+.searchcombox dl>dt {
+	height:25px;
+	line-height:25px;
+	font-weight:400
+}
+.searchcombox dl>dt i {
+	color:#f6ab00;
+	margin:0 5px
+}
+.searchcombox dl>dt a {
+	color:#333
+}
+.searchcombox dl>dt a b {
+	color:#37a0db
+}
+.searchcombox dl>dt:hover {
+	cursor:pointer;
+	background:#eee
+}
+.searchcombox dl>dd {
+	height:25px;
+	text-indent:15px
+}
+.searchcombox dl>dd:hover {
+	background:#eee
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+#show-ad{height: 280px;background: #920d0e;}
+#show-ad .wrapper{ display: table; background: url('http://static.soolife.cn/asset/img/showad/ac_03.jpg'); height: 280px;}
+#show-ad .wrapper .timeleft{
+    margin-left: 425px;
+    font-size: 30px;
+    margin-top: 201px;
+    color: #fdd900;font-weight: bold;  display: none;
+}
+#show-ad .wrapper .timeleft .t_d{
+    margin-right: 55px;
+}
+#show-ad .wrapper .timeleft .t_h{
+    margin-right: 55px;
+}
+#show-ad .wrapper .timeleft .t_m{
+    margin-right: 55px;
+}
+
+#closeshowad{    z-index: 100;
+    position: fixed;    top: 0;    right: 40px;
+}
+#closeshowad .mainBox{  text-align: right;}
+#closeshowad i{color:rgb(243, 165, 0);cursor:pointer;} 
+
+/*商家入驻*/
+#header .rightflo{width:300px;}
+
+.businessor{
+display: inline-block;
+position: relative;
+float: left;
+height: 30px;	
+}
+
+.businessor a{color:#333333}
+
+.rightflo{position:relative;}
+
+.rightflo .navmore {
+position: absolute;
+right:15px;
+top: 2px;
+width: 77px;
+height: 23px;
+overflow: hidden;
+background-color:#fff;
+cursor: pointer;
+z-index: 80;
+border:1px solid #eee;
+
+}
+
+.rightflo .navmore dt{
+	background-color:#F5F5F5;
+	height:23px;
+	line-height:23px;
+   padding-left:5px;
+	
+}
+.rightflo .navmore.hover{
+	height:auto;
+	border:1px solid #eee;
+}
+
+.rightflo .navmore dd a {
+	display:block;
+   height: 25px;
+   line-height: 25px;
+   text-align:left;
+   padding-left:8px;
+}
+
+.rightflo .navmore dd a:hover{
+	background-color:#37A0DB;
+	color:red;
+}
+
+

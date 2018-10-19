@@ -1,0 +1,46 @@
+.bh_content .br_slide_container{
+	margin: 0 0 !important;
+}
+.br_slide_container .tcenter{
+	margin: 0px 0px!important;
+	position: relative;
+	width: 100%;
+}
+.br_slide_container .br_slide{
+	margin-left: 15px;
+}
+.tcenter a{
+	font-size:50px;
+	color: #ccc;
+}
+.tcenter a:hover{
+	color:#f7ab00;
+}
+.tcenter .prev{
+	top: 120px;
+	left: 0px;
+	position: absolute;
+}
+.tcenter .next{
+	top: 120px;
+	position: absolute;
+	right: 0;
+}
+
+
+.listmore{
+	text-align: center;
+	cursor: pointer;
+}
+.listmore:hover{
+	-webkit-box-shadow:inset 5px 5px 5px 5px rgba(0, 204, 204, .5);  
+  	-moz-box-shadow:inset 5px 5px 5px 5px rgba(0, 204, 204, .5);  
+  	box-shadow:inset 0 0 6px 0px rgba(204, 204, 204, .5);  
+}
+.listmore i{
+	font-weight: bold;
+	cursor: pointer;
+}
+.listmore i:hover{
+	color: #F6AB00;
+}

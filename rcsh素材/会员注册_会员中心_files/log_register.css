@@ -1,0 +1,208 @@
+#log_header {
+  height: 100px;
+  box-sizing: border-box;
+  padding-top: 20px; }
+
+#log_body {
+  height: 530px;
+  background: url("../../img/log/banner_new.jpg");
+  background-size: 100% 100%;
+  position: relative; }
+  #log_body #log_body_log {
+    width: 360px;
+    height: 390px;
+    background: white;
+    position: absolute;
+    right: 73px;
+    top: 77px; }
+    #log_body #log_body_log h4 {
+      height: 50px;
+      background: #ff645c;
+      font-size: 20px;
+      text-align: center;
+      width: 100%;
+      line-height: 50px;
+      color: white;
+      font-weight: 700; }
+    #log_body #log_body_log span:nth-of-type(1) {
+      width: 55px;
+      height: 55px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: white; }
+      #log_body #log_body_log span:nth-of-type(1) i:nth-of-type(1) {
+        width: 30px;
+        height: 30px;
+        display: block;
+        top: 7px;
+        left: 16px;
+        background: url("../../img/log/iconfont-erweima-(2).png");
+        position: absolute; }
+      #log_body #log_body_log span:nth-of-type(1) i:nth-of-type(2) {
+        cursor: pointer;
+        display: block;
+        border: 25px solid #ff645c;
+        position: absolute;
+        border-color: transparent transparent #ff645c #ff645c; }
+    #log_body #log_body_log input[type='text'] {
+      width: 310px;
+      height: 40px;
+      box-sizing: border-box;
+      border: 1px solid lightgray;
+      text-indent: 35px;
+      margin-left: 25px;
+      margin-top: 11px; }
+    #log_body #log_body_log .username_i {
+      width: 22px;
+      height: 22px;
+      display: block;
+      top: 70px;
+      left: 35px;
+      background: url("../../img/log/entertext_0.png");
+      background-size: 100% 100%;
+      position: absolute; }
+    #log_body #log_body_log input[type='password'] {
+      width: 310px;
+      height: 40px;
+      box-sizing: border-box;
+      border: 1px solid lightgray;
+      text-indent: 35px;
+      margin-left: 25px;
+      margin-top: 11px;
+      margin-bottom: 38px; }
+    #log_body #log_body_log .password_i {
+      width: 22px;
+      height: 22px;
+      display: block;
+      top: 121px;
+      left: 36px;
+      background: url("../../img/log/enterpasword_0.png");
+      background-size: 100% 100%;
+      position: absolute; }
+    #log_body #log_body_log input[type='checkbox'] {
+      margin-left: 25px; }
+    #log_body #log_body_log .forget_passw {
+      cursor: pointer;
+      float: right;
+      margin-right: 30px; }
+    #log_body #log_body_log input[type='button'] {
+      cursor: pointer;
+      margin-left: 25px;
+      width: 310px;
+      height: 40px;
+      background: #ff4c7b;
+      font-size: 18px;
+      color: white;
+      margin-top: 25px;
+      border-radius: 3px;
+      line-height: 40px;
+      text-align: center; }
+    #log_body #log_body_log p:nth-of-type(1) {
+      width: 310px;
+      margin-left: 25px;
+      height: 50px;
+      line-height: 50px;
+      text-align: right;
+      font-size: 12px; }
+      #log_body #log_body_log p:nth-of-type(1) a {
+        cursor: pointer;
+        color: #00a5e3;
+        font-size: 13px; }
+    #log_body #log_body_log p:nth-of-type(2) {
+      width: 310px;
+      margin-left: 25px;
+      height: 40px;
+      line-height: 50px;
+      font-size: 13px; }
+    #log_body #log_body_log span {
+      font-size: 13px; }
+    #log_body #log_body_log span:nth-of-type(3) {
+      cursor: pointer;
+      margin-left: 39px; }
+      #log_body #log_body_log span:nth-of-type(3) i {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        background: url("../../img/log/b_2.png");
+        background-size: 100% 100%;
+        position: absolute;
+        bottom: 5px;
+        left: 24px; }
+    #log_body #log_body_log span:nth-of-type(4) {
+      cursor: pointer;
+      margin-left: 19px; }
+      #log_body #log_body_log span:nth-of-type(4) i {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        background: red;
+        background: url("../../img/log/b_3.png");
+        background-size: 100% 100%;
+        position: absolute;
+        bottom: 5px;
+        left: 67px; }
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: #ff2865; }
+
+#register_body {
+  height: 510px; }
+  #register_body #register_body_register {
+    width: 470px;
+    height: 480px;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative; }
+    #register_body #register_body_register h3 {
+      font-size: 23px;
+      font-weight: 700;
+      margin-left: 25px;
+      display: inline-block; }
+    #register_body #register_body_register span {
+      font-size: 12px; }
+      #register_body #register_body_register span a {
+        color: #00a1dc;
+        cursor: pointer; }
+    #register_body #register_body_register label {
+      width: 100px;
+      display: inline-block;
+      text-align: right;
+      height: 43px;
+      margin-top: 20px;
+      line-height: 40px; }
+    #register_body #register_body_register input {
+      width: 300px;
+      height: 40px;
+      border: 1px solid lightgray;
+      text-indent: 10px; }
+    #register_body #register_body_register input[type='checkbox'] {
+      width: 12px;
+      height: 12px; }
+    #register_body #register_body_register input[type='button'] {
+      background: #ff2865;
+      color: white;
+      font-weight: 700;
+      cursor: pointer; }
+    #register_body #register_body_register #phone_tip {
+      position: absolute;
+      width: 237px;
+      height: 30px;
+      right: -181px;
+      top: 96px; }
+    #register_body #register_body_register #register_password1_tip {
+      position: absolute;
+      width: 237px;
+      height: 30px;
+      right: -181px;
+      top: 223px; }
+    #register_body #register_body_register #register_password_tip {
+      position: absolute;
+      width: 237px;
+      height: 30px;
+      right: -181px;
+      top: 159px; }
+
+/*# sourceMappingURL=log_register.css.map */

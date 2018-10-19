@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/cookie.js"></script>
+		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css"/>
+		
+		<!--cookie-->
+		<script type="text/javascript" src="js/cookie.js"></script>
+		
+		<!--startmove-->
+		<script type="text/javascript" src="js/startMove.js"></script>
+		
+		<!--index_nav的info-->
+		<script type="text/javascript" src="js/index_nav/index_nav_info.js"></script>
+		
+		<!--ajax-->
+		<script type="text/javascript" src="js/ajax.js"></script>
+	</head>
+	<body>
+		<!--header-->
+		<div id="header">
+			<div id="header_header">
+				<!--top-->
+				<div id="header_top"  class="container">
+					<span id="show_username" style="color:black;cursor: default;">Hi,欢迎来到如此生活</span>&nbsp;&nbsp;
+					<a href="log.html"><span class="log_username">登录</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="register.html"><span class="log_register">免费注册&nbsp;&nbsp;|&nbsp;</span></a>
+					<i class='iconfont icon1'>&#xe64f;</i>&nbsp;<i class='iconfont icon2'>&#xe620;</i>
+					
+					<ul>
+						<li>我的生活
+							<i class="iconfont">&#xe633;</i>&nbsp;|
+							<ul>
+								<li>我的订单</li>
+								<li>星币查询</li>
+								<li>余额查询</li>
+								<li>我的优惠券</li>
+							</ul>
+						</li>
+						<li>商家入驻&nbsp;|</li>
+						<li>帮助中心
+							<i class="iconfont">&#xe633;</i>&nbsp;|
+							<ul>
+								<li>帮助首页</li>
+								<li>售后服务</li>
+							</ul>
+						</li>
+						<li>更多导航
+							<i class="iconfont">&#xe633;</i>&nbsp;
+							<ul>
+								<li>首页</li>
+								<li>海外精品</li>
+								<li>星范儿</li>
+								<li>星特惠</li>
+								<li>星粉专区</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--mid-->
+			<div id="header_mid" class="container">
+				<a href="index.html"><i><img src="img/header/logo.gif"></i></a>
+				<div>
+					<span>商品</span><span>店铺</span><br>
+					<input type="text" id="search_input" placeholder="格力">
+					<input type="button" id="search_btn" value="搜索">
+					<ul>
+						<li>山茶油</li>
+						<li>iphone X</li>
+						<li>COACH</li>
+						<li>韩都衣舍</li>
+						<li>ARTIART不倒杯</li>
+						<li>清风</li>
+						<li>三只蚂蚁</li>
+						<li>卡罗特</li>
+					</ul>
+				</div>
+				<i><img src="img/header/iphones.png"></i>
+			</div>
+		
+			<!--nav-->
+			<div id="header_nav" class="container">
+				<div id="header_nav_left">
+					<span>全部商品分类<i class="iconfont icon-jian"></i></span>
+					<div id="header_nav_left_show">
+						<ul>
+						</ul>
+						<ol>
+						</ol>
+					</div>
+				</div>
+				<div id="header_nav_right">
+					<ul>
+						<li class="selected"><a>首页</a></li>
+						<li><a>海外精品</a></li>
+						<li><a>星范儿</a></li>
+						<li><a>星特惠</a></li>
+						<li><a>星粉专区</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<!--left-->
+			<div id="header_left">
+				<ul>
+					<li><i class="iconfont">&#xe64a;</i></li>
+					<li><i class="iconfont">&#xe657;</i></li>
+					<li><i class="iconfont">&#xe60b;</i></li>
+					<li><i class="iconfont">&#xe503;</i></li>
+					<li><i class="iconfont">&#xe624;</i></li>
+					<li><i class="iconfont">&#xe613;</i></li>
+					<li><i class="iconfont">&#x3441;</i></li>
+					<li><i class="iconfont">&#xe618;</i></li>
+					<li><i class="iconfont">&#xe604;</i></li>
+				</ul>
+			</div>
+			
+			<!--right-->
+			<div id="header_right">
+				<div class="header_right_one">
+				</div>
+				<div class="header_right_two">
+					<div>
+						<i class="iconfont icon-qicheqianlian-1-copy"></i>
+						<p>购<br>物<br>车</p>
+						<span>0</span>
+					</div>
+					
+					<ul>
+						<li><i class='iconfont icon-discountticket'></i>
+							<span>我的资产
+								<i></i>
+							</span>
+						</li>
+						<li><i class='iconfont icon-aixin'></i>
+							<span>关注的商品
+								<i></i>
+							</span>
+						</li>
+						<li><i class='iconfont icon-xing'></i>
+							<span>关注的店铺
+								<i></i>
+							</span>
+						</li>
+						<li><i class='iconfont icon-yanjing-'></i>
+							<span>历史纪录
+								<i></i>
+							</span>
+						</li>
+						<li><i class='iconfont icon-zhanghu'></i>
+							<span>客服
+								<i></i>
+							</span>
+						</li>
+						<li><i class='iconfont icon-dingbu'></i>
+							<span>返回顶部
+								<i></i>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!--body-->
+		<div id="rcsh_body">
+			<!--banner-->
+			<div id="rcsh_banner">
+				<ul>
+					<li><a><img src="img/header/banner01.jpg"/></a></li>
+					<li><a><img src="img/header/banner02.jpg"/></a></li>
+					<li><a><img src="img/header/banner03.jpg"/></a></li>
+					<li><a><img src="img/header/banner04.jpg"/></a></li>
+					<li><a><img src="img/header/banner01.jpg"/></a></li>
+				</ul>
+				<ol>
+					<li><span class="selected"></span></li>
+					<li><span></span></li>
+					<li><span></span></li>
+					<li><span></span></li>
+				</ol>
+			</div>
+
+
+			<!--banner_bottom-->
+			<div id="rcsh_banner_bottom" class="container">
+				<ul>
+					<li><img src="img/body/banner_bottom/banner_bottom01.jpg"/></li>
+					<li><img src="img/body/banner_bottom/banner_bottom02.jpg"/></li>
+					<li><img src="img/body/banner_bottom/banner_bottom03.jpg"/></li>
+					<li><img src="img/body/banner_bottom/banner_bottom04.jpg"/></li>
+					<li><img src="img/body/banner_bottom/banner_bottom05.jpg"/></li>
+				</ul>
+				<img class='rcsh_banner_bottom_img' src="img/body/banner_bottom/banner_bottom06.jpg"/>
+			</div>
+			
+			
+			
+			<!--rcsh_brand_festival-->
+			<div id="rcsh_brand_festival"  class="container">
+				<ul>
+				</ul>
+			</div>
+			
+			
+			<!--rcsh_brand_recommend-->
+			<div id="rcsh_brand_recommend"  class="container">
+				<h3>品牌推荐</h3>
+				<ul>
+				</ul>
+				<ul>
+				</ul>
+			</div>
+			
+			
+			<!--1F-->
+			<div id="one_f"  class="container">
+				<h3>1F 服饰鞋帽</h3>
+				<div id="one_f_left">
+					<span>
+						<a><img src='img/body/1F/1F1.jpg'>
+							</a>
+					</span>
+					<ul>
+						<li>连体裤</li>
+						<li>丝袜</li>
+						<li>正装皮鞋</li>
+						<li><span>连衣裙</span></li>
+						<li>牛仔裤</li>
+						
+						<li>衬衫</li>
+						<li>文胸内衣</li>
+						<li>休闲鞋</li>
+						<li>服饰配件</li>
+						<li>西装</li>
+					</ul>
+				</div>
+				<div id="one_f_right">
+					<ul></ul>
+				</div>
+			</div>
+			
+			
+			<!--2F-->
+			<div id="two_f"  class="container">
+				<h3>2F 食品酒水</h3>
+				<div id="two_f_left">
+					<span>
+						<a><img src='img/body/2F/2F1.jpg'>
+							</a>
+					</span>
+					<ul>
+						<li>蜂蜜</li>
+						<li>大米粮油</li>
+						<li>巧克力</li>
+						<li><span>坚果</span></li>
+						<li>红酒</li>
+						
+						<li>红枣</li>
+						<li>饼干</li>
+						<li>酵素</li>
+						<li>橄榄油</li>
+						<li>枸杞</li>
+					</ul>
+				</div>
+				<div id="two_f_right">
+					<ul></ul>
+				</div>
+			</div>
+			
+			
+			<!--3F-->
+			<div id="three_f" class="container">
+				<h3>3F 母婴玩具</h3>
+				<div id="three_f_left">
+					<span>
+						<a><img src='img/body/3F/3F1.jpg'>
+							</a>
+					</span>
+					<ul>
+						<li>婴儿奶瓶</li>
+						<li>益智玩具</li>
+						<li>毛绒玩具</li>
+						<li><span>宝宝寝具</span></li>
+						<li>童装童鞋</li>
+						
+						<li>婴儿辅食</li>
+						<li>婴儿洗护</li>
+						<li>婴儿湿巾</li>
+						<li>婴儿奶粉</li>
+						<li>纸尿裤/li>
+					</ul>
+				</div>
+				<div id="three_f_right">
+					<ul></ul>
+				</div>
+			</div>
+
+
+
+			<!--4F-->
+			<div id="four_f" class="container">
+				<h3>4F 日用百货</h3>
+				<div id="four_f_left">
+					<span>
+						<a><img src='img/body/4F/4F1.jpg'>
+							</a>
+					</span>
+					<ul>
+						<li>洗护套装</li>
+						<li>生活用品</li>
+						<li>厨房用具</li>
+						<li><span>杯子</span></li>
+						<li>洗发水</li>
+						
+						<li>开瓶器</li>
+						<li>手套</li>
+						<li>洗衣液</li>
+						<li>清洁用具</li>
+						<li>保鲜膜/li>
+					</ul>
+				</div>
+				<div id="four_f_right">
+					<ul></ul>
+				</div>
+			</div>
+			
+			<!--5F-->
+			<div id="five_f" class="container">
+				<h3>5F 智能电配</h3>
+				<div id="five_f_left">
+					<span>
+						<a><img src='img/body/5F/5F1.jpg'>
+							</a>
+					</span>
+					<ul>
+						<li>吸尘器</li>
+						<li>净化器</li>
+						<li>净化器</li>
+						<li><span>手机数码</span></li>
+						<li>冰箱</li>
+						
+						<li>热水壶</li>
+						<li>抽烟机</li>
+						<li>洗衣机</li>
+						<li>烤箱</li>
+						<li>净水器</li>
+					</ul>
+				</div>
+				<div id="five_f_right">
+					<ul></ul>
+				</div>
+			</div>
+			
+			
+			<div id="you_like" class="container">
+				<h3>猜你喜欢</h3>
+				<ul>
+				</ul>
+			</div>
+		</div>
+		
+		<!--footer-->
+		<div id="rcsh_footer">
+			<div id="rcsh_footer_top" class="container">
+				<ul id="rcsh_footer_top_ul">
+					<li>
+						<span><i class='iconfont icon-shafa'>新手指南</i></span>
+						<ol>
+							<li>免费注册</li>
+							<li>搜索商品</li>
+							<li>购买流程</li>
+							<li>评论晒单</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>配送方式</i></span>
+						<ol>
+							<li>配送方式</li>
+							<li>配送事件</li>
+						</ol>
+					</li>
+					<li>
+						</i><span><i class='iconfont icon-shafa'>支付方式</i></span>
+						<ol>
+							<li>支付宝支付</li>
+							<li>银联卡支付</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>售后服务</i></span>
+						<ol>
+							<li>售后政策</li>
+							<li>退款说明</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>招商合作</i></span>
+						<ol>
+							<li>商家入驻</li>
+							<li>企业会员</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>购物指南</i></span>
+						<ol>
+							<li>星币说明</li>
+							<li>交易条款</li>
+							<li>购物流程</li>
+							<li>注册流程</li>
+							<li>常见问题</li>
+						</ol>
+					</li>
+				</ul>
+			</div>
+			<div id="rcsh_footer_mid">
+				<div class="container" >
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				
+			</div>
+			<div id="rcsh_footer_bottom" class="container">
+				<ul>
+					<li>关于我们</li>
+					<li>联系我们</li>
+					<li>品牌介绍</li>
+					<li>商家入驻</li>
+					<li>友情链接</li>
+					<li>法律声明</li>
+					<li>出版物许可证</li>
+				</ul>
+				<p>©&nbsp;2016-2018&nbsp;如此生活&nbsp;版权所有&nbsp;沪ICP备11038000号-2</p>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/index-dataRender.js"></script>

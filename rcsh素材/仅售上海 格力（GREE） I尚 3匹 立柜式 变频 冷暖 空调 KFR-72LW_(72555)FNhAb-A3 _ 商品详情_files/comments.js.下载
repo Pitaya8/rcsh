@@ -1,0 +1,258 @@
+$(function(){
+	//评论的类型   0 全部评论  1 有图评论
+	var type = 0;
+	// 全部评论or有图的点击事件
+	$('body').on('click',".allcomments_btn,.allcomments_txt",function(){
+		$(".allcomments_btn").attr("src","public/pc/img/Group3.png");
+		$(".allcomments_txt").css('color', '#EB3349');
+		$(".pic_btn").attr("src","public/pc/img/Rectangle7.png");
+		$(".pic_txt").css('color', '#333333');
+		type = 0;
+		getPostage(1);
+	})
+	$('body').on('click',".pic_btn,.pic_txt",function(){
+		$(".pic_btn").attr("src","public/pc/img/Group3.png");
+		$(".pic_txt").css('color', '#EB3349');
+		$(".allcomments_btn").attr("src","public/pc/img/Rectangle7.png");
+		$(".allcomments_txt").css('color', '#333333');
+		type = 1;
+		getPostage(1);
+	})
+	// 点评图片的hover
+	$(".comments_img div").hover(function(){
+		$(this).children('.pic_bigplus').show();
+	},function(){
+		$(".pic_bigplus").hide();
+	})
+	// 点击图片放大
+	num = 0;
+	// picArr=new Array("public/pc/img/Group3.png","public/pc/img/Rectangle7.png","public/pc/img/1526437284(1).jpg");
+	$(".pic_bigplus").click(function(){
+		var imgSrc = $(this).siblings().attr('src');
+		var _this = $(this).parent().parent().siblings();
+		_this.children().attr("src",imgSrc)
+		_this.show();
+		_this.children().each(function(index, element) {
+         	var imgsrcthree=$(element).attr('src');
+	        var imgsrctwo = _this.children().attr("src");
+	        if(imgsrcthree == imgsrctwo){
+	        	num = index;
+	        }
+        });
+	})
+	// 点击隐藏大图
+	$(".small_btn>img").click(function(){
+		$(this).parent().parent().parent().hide();
+		// $(this).parent().parent().siblings()find("").css('border', 'none');
+	})
+	// 点击跳转前后一张
+    $(".right_btn").click(function(){
+    	var pic_v = $(this).parent().parent().siblings().children().find(".pic_v");
+    	var picArr = [];
+    	pic_v.each(function(index, element) {
+         	picArr.push($(element).attr('src'));
+        });
+        var n = num;
+    	if(num==(picArr.length-1)){
+    		num=0;
+        }else{
+        	num++;
+        }
+    	$(this).parent().parent().find(".bpic_big").attr("src",picArr[n]);
+    })
+    $(".left_btn").click(function(){
+    	var pic_v = $(this).parent().parent().siblings().children().find(".pic_v");
+    	var picArr = [];
+    	pic_v.each(function(index, element) {
+         	picArr.push($(element).attr('src'));
+        });
+        var n = num;
+	    if(num==(picArr.length-3)){
+    		num=2;
+        }else{
+        	num--;
+        }
+    	$(this).parent().parent().find(".bpic_big").attr("src",picArr[n]);
+    })
+
+    // 点击分页
+    $(".comments_num span").click(function(){
+    	$(this).css({
+    		background: '#EB3349',
+    		color: '#FFFFFF'
+    	});
+    	$(this).siblings().css({
+    		color: '#333333',
+    		background: '#ffffff'
+    	});
+    });
+
+    //ajax事件
+    function getPostage(index) {
+    	var id = $("#sku_id").val();
+    	var size = 10;
+		$.ajax({
+			url  : "/sku/comment.html",
+			type : 'post',
+			data : {
+	            "id"    : id,
+	            "index" : index,
+	            "size"  : size,
+	            "type"  : type,
+			},
+			dataType : 'json',
+			success : function(data) {
+				var str = '';
+				if (data.success && data.data != 'undifind' && data.data.data != 'undifind' && data.data.data.list != 'undifind' && data.data.data.list) {
+					if (data.data.type != 'undifind' && data.data.type == 1) {
+						str += '<div class="pic_yesornot">'
+							+		'<span>'
+							+'			<img class="allcomments_btn" src="public/pc/img/Rectangle7.png" alt="">'
+							+'		</span>'
+							+'			<span class="allcomments_txt">全部评论</span>'
+							+'		<span>'
+							+'			<img class="pic_btn" src="public/pc/img/Group3.png" alt="">'
+							+'		</span>'
+							+'			<span class="pic_txt red_comment" style="color: rgb(235, 51, 73);">有图评论</span>'
+							+'	</div>';
+					} else {
+						str += '<div class="pic_yesornot">'
+							+		'<span>'
+							+'			<img class="allcomments_btn" src="public/pc/img/Group3.png" alt="">'
+							+'		</span>'
+							+'			<span class="allcomments_txt red_comment" style="color: rgb(235, 51, 73);">全部评论</span>'
+							+'		<span>'
+							+'			<img class="pic_btn" src="public/pc/img/Rectangle7.png" alt="">'
+							+'		</span>'
+							+'			<span class="pic_txt">有图评论</span>'
+							+'	</div>';
+					}
+					if (data.data.data.list != 'undifind' && data.data.data.list.length > 0) {
+						for (var i = 0; i <= data.data.data.list.length - 1; i++) {
+							str +=    '	<div class="comments_all">'
+								+'		<div class="every_comment">'
+								+'			<div class="every_commentleft">'
+								+'				<img src=" ' + data.data.data.list[i].avatar + '" alt="">'
+								+'				<p> ' + data.data.data.list[i].member_name + '</p>'
+								+'			</div>'
+								+'			<div class="every_commentmiddle">'
+										if (data.data.data.list[i]['grade'] > 0) {
+											for (var k = 1; k <= data.data.data.list[i]['grade']; k++) {
+							str +=				'<img src="public/pc/img/Star.png" alt="">'
+											}
+										}
+										if (data.data.data.list[i]['bai_grad'] > 0) {
+											for (var l = 1; l <= data.data.data.list[i]['bai_grad']; l++) {
+							str +=				'<img src="public/pc/img/bai_star.png" alt="">'
+											}
+										}
+										if (data.data.data.list[i].content.trim() == '') {
+							str	+=				'<p>好评！</p>'
+								+'				<div class="comments_img">'
+										} else {
+							str	+=				'<p> ' + data.data.data.list[i].content + '</p>'
+								+'				<div class="comments_img">'
+										}
+												if (data.data.data.list.picture != 'undifind' && data.data.data.list[i].picture.length > 0) {
+													for (var j = data.data.data.list[i].picture.length - 1; j >= 0; j--) {
+							str += 					'<div>'
+								+'						<img src="' + data.data.data.list[i].picture[j] + '" alt="" class="pic_v">'
+								+'						<div class="pic_bigplus">'
+								+'							<img src="public/pc/img/Shapeplus.png" alt="">'
+								+'						</div>'
+								+'					</div>'
+													}
+												}
+							str += '				</div>'
+								+'				<div class="comments_imgbig">'
+								+'					<img src="" alt="" class="bpic_big">'
+								+'					<div>'
+								+'						<div class="left_btn">'
+								+'							<img src="public/pc/img/Rectangle8Copy.png" alt="">'
+								+'						</div>'
+								+'						<div class="small_btn">'
+								+'							<img src="public/pc/img/Shape.png" alt="">'
+								+'						</div>'
+								+'						<div class="right_btn">'
+								+'							<img src="public/pc/img/Rectangle8.png" alt="">'
+								+'						</div>'
+								+'					</div>'
+								+'				</div>'
+								+'			</div>'
+								+'			<div class="every_commentright">'
+								+'				<p> ' + data.data.data.list[i].create_time + '</p>'
+								+'				<p> ' + data.data.data.list[i].specs + '</p>'
+								+'			</div>'
+								+'		</div>'
+								+'	</div>'
+						}
+					} else {
+						str += '<div style="margin-left: 20px;margin-top: 10px;">没有更多评价了！</div>';
+					}
+				}
+				$(".comments_content").siblings().attr("data-currentPage",data.data.index);
+				$(".comments_content").siblings().attr("data-totalPages",data.data.total_page);
+				var paginator =  $(".comments_content").next();
+				var totalPages = paginator.attr("data-totalPages");
+				if (totalPages>0)
+				{
+					var options = {
+						currentPage: paginator.attr("data-currentPage"),
+						totalPages: paginator.attr("data-totalPages"),
+						numberOfPages:paginator.attr("data-numberOfPages"),
+						useBootstrapTooltip:true,
+						itemTexts: function (type, page, current) {
+							switch (type) {
+								case "first":
+									return "首页";
+								case "prev":
+									return "上一页";
+								case "next":
+									return "下一页";
+								case "last":
+									return "尾页";
+								case "page":
+									return page;
+							}
+						}
+					};
+					paginator.bootstrapPaginator(options);
+				}
+				$(".comments_content").html(str);
+			}
+		});
+	}
+
+	//分页的js
+	var paginator =  $('.page');
+	var totalPages = paginator.attr("data-totalPages");
+	if (totalPages>0)
+	{
+		var options = {
+			currentPage: paginator.attr("data-currentPage"),
+			totalPages: paginator.attr("data-totalPages"),
+			numberOfPages:paginator.attr("data-numberOfPages"),
+			useBootstrapTooltip:true,
+			itemTexts: function (type, page, current) {
+				switch (type) {
+					case "first":
+						return "首页";
+					case "prev":
+						return "上一页";
+					case "next":
+						return "下一页";
+					case "last":
+						return "尾页";
+					case "page":
+						return page;
+				}
+			},
+			onPageClicked:function(event, originalEvent, type,page) {
+				getPostage(page);
+				location.href = "#comments";
+			}
+		};
+		paginator.bootstrapPaginator(options);
+	}
+
+})

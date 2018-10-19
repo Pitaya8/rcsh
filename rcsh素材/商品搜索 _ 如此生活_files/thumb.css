@@ -1,0 +1,32 @@
+.s_l_view_bg {
+    height: 27px;
+    margin-top: 0px;
+    padding-left: 10px;
+    top:0px;
+    position: inherit;
+   }
+ .haiwai, .s_l_onsale, .shoufa, .zhenpin_icon1 {
+    background: rgba(0, 0, 0, 0) url("../../img/listfullminus.png") no-repeat scroll  0;
+}
+   .haiwai, .s_l_onsale, .shoufa, .zhenpin_icon2 {
+    background: rgba(0, 0, 0, 0) url("../../img/listfullgive.png") no-repeat scroll  0;
+}
+
+.haiwai, .s_l_onsale, .shoufa, .zhenpin_icon5 {
+    background: rgba(0, 0, 0, 0) url("../../img/listrebate.png") no-repeat scroll  0;
+}
+
+.haiwai, .s_l_onsale, .shoufa, .zhenpin_icon6 {
+    background: rgba(0, 0, 0, 0) url("../../img/liststep.png") no-repeat scroll  0;
+}
+.haiwai, .s_l_onsale, .shoufa, .zhenpin_icon8 {
+    background: rgba(0, 0, 0, 0) url("../../img/listcredit.png") no-repeat scroll  0;
+}
+.haiwai, .s_l_onsale, .shoufa, .zhenpin_icon9 {
+    background: rgba(0, 0, 0, 0) url("../../img/listfullrebate.png") no-repeat scroll  0;
+}
+.zhenpin_icon3,.zhenpin_icon1,.zhenpin_icon2,.zhenpin_icon5,.zhenpin_icon6,.zhenpin_icon8,.zhenpin_icon9 {
+    float: right;
+    height: 95px;
+    width: 55px;
+}

@@ -1,0 +1,84 @@
+$(function(){
+	 
+	function timeleft() {
+		$('.timeleft').each(function() {
+			var Time = $(this).attr('time');
+			var EndTime = new Date(Time);
+			var NowTime = new Date();
+			if(EndTime<NowTime){
+				$(this).html('00秒活动已结束');
+				
+			}else{
+				var t = EndTime.getTime() - NowTime.getTime();
+				var d = Math.floor(t / 1000 / 60 / 60 / 24);
+				if (d < 10) {
+					d = "0" + d;
+				}
+				var h = Math.floor(t / 1000 / 60 / 60 % 24);
+				if (h < 10) {
+					h = "0" + h;
+				}
+				var m = Math.floor(t / 1000 / 60 % 60);
+				if (m < 10) {
+					m = "0" + m;
+				}
+				var s = Math.floor(t / 1000 % 60);
+				if (s < 10) {
+					s = "0" + s;
+				}
+				$(this).find('.t_d').html(d);
+				$(this).find('.t_h').html(h);
+				$(this).find('.t_m').html(m);
+				$(this).find('.t_s').html(s);
+			}
+		});
+	}
+
+	setInterval(timeleft, 1000);
+	
+var timerc=0; //全局时间变量（秒数）
+    function add(){ //加时函数
+        if(timerc < 5){ //如果不到5分钟
+            ++timerc; //时间变量自增1
+        }else{
+        	clearInterval(showint);
+	        	//$('#show-ad').animate({height : '0px'});
+	        	$("#show-ad").slideUp("slow");
+	        	$("#closeshowad i.icon-double-angle-up").addClass('hide');
+     	 $('#closeshowad i.icon-double-angle-down').removeClass('hide');
+			
+        };
+    };
+     var showint=setInterval(add, 1000);
+     
+     
+     $('#closeshowad i.icon-double-angle-down').click(function(){
+     		
+     	$("#show-ad").slideDown("slow");
+     	$(this).addClass('hide');
+     	 $('#closeshowad i.icon-double-angle-up').removeClass('hide');
+     });
+     $('#closeshowad i.icon-double-angle-up').click(function(){
+     clearInterval(showint);
+     	$("#show-ad").slideUp("slow");
+     	$(this).addClass('hide');
+     	 $('#closeshowad i.icon-double-angle-down').removeClass('hide');
+     });
+});
+
+/*更多导航*/
+
+$('.rightflo .navmore').on('mouseover',function(){
+	
+	
+	$(this).addClass('hover');
+	
+});
+
+$('.rightflo .navmore').on('mouseout',function(){
+	
+	
+	$(this).removeClass('hover');
+	
+});
+

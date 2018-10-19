@@ -1,0 +1,249 @@
+//如果屏幕宽度小于992展示web的商品详情
+// var screen =  window.screen.width;
+// console.log(screen);
+// if (screen < 992) {
+//     window.location.href = "http://item.soolife.loc/m/66833.html";
+// }
+$.base64.utf8encode = true;
+var search_url = $('.url_search').val();
+var returnurl  = $('.url_i').val();
+var store_url  = $('.url_store').val();
+var currenturl = $.base64.btoa(location.href);
+var skuids     = $(".sku_ids").val();
+var shopid     = $(".storeid").val();
+var skuid      = $('.btn-addcart').attr('skuid');
+var nologin_url= returnurl + "/login.html?return_url=" + currenturl;
+transfer_url();
+
+function getQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]); return null;
+}
+function SetCookie(name,value)//两个参数，一个是cookie的名子，一个是值
+{
+    var Days = 30; //此 cookie 将被保存 30 天
+    var exp  = new Date();    //new Date("December 31, 9998");
+    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+}
+//转换登录、登出地址
+function transfer_url(){
+	var logout_url = returnurl + '/logout.html?return_url='+currenturl;
+	$('a.Alreadylogin').attr('href',logout_url);
+	$('a.login_link').attr('href',nologin_url);
+}
+
+/**
+ *右边购物车数量改变
+ */
+function right_cart_num(){
+	$("#amount").load("/shopcart/cartnum", function(content) {
+		if (parseInt(content) > 99) {
+			$("#amount").html("99+");
+		}else{
+			$("#amount").html(parseInt(content));
+		}
+	});
+}
+
+/**
+* @Todo--右侧侧边栏
+* @author--Xie <soosim@qq.com>
+*/
+function right_sidebar() {
+	$("#rtbar_cart").load("/cart.html", function(content, status) {
+		if (status == "success") {
+			$(".mini-cart-list-img").remove();
+			$(this).removeClass("tcenter");
+		}
+		//$(this).removeClass('ms-lazy');
+		$('#removecart').click(function() {
+			$('.rtbar_cart').hide();
+		});
+
+		//删除右侧购物车中商品
+		$("li i.icon-remove").click(function() {
+			var tempthis = $(this);
+			var value = $(this).attr("data-value");
+			$.ajax({
+				url : "/deletecart.html",
+				data : {
+					"skuid" : value
+				},
+				dataType : 'json',
+				type : "post",
+				success : function(d) {
+					if (d.success == 1) {
+						right_cart_num();
+						right_sidebar();
+						tempthis.parents("li").hide();
+					}else if(d.success == -1){
+						location.href=nologin_url;
+					}else{
+						show_message('删除失败，请重新删除！');
+					}
+				}
+			});
+		});
+
+		$("#login_url").attr('href',nologin_url);
+		$("#reload_shopcart").click(function(){
+			$('.toolbar-bd').empty().append('<div class="mini-cart-list tcenter" id="rtbar_cart"><img src="http://static.soolife.cn/asset/img/lazy.gif" class="mini-cart-list-img"></div>');
+			right_sidebar();
+		});
+	});
+}
+
+$(function(){
+	right_cart_num();
+	var source = getQueryString("s");
+	if(source)
+	{
+		SetCookie('source',source);
+	}
+	$(".rtbar-cart .title").click(function() {
+		right_sidebar();
+	});
+	$("img.lazy").lazyload({
+		failure_limit : 1,
+		event : "scroll",
+		data_attribute : "img"
+	});
+
+//Store  Search  Area
+	$.base64.utf8encode = true;
+	$('.mainBox .leftflo div button').click(function(){
+		var key = $('.s-combobox .s-combobox-input').val();
+		// if (key == "") return false;
+		key = $.base64.btoa(key);
+		key = key.replace(/\+/g, "-");
+		if($(this).attr('data-value') == 'store'){
+			window.location.href = store_url+'/goods/'+shopid+'.html?n='+key;
+		}else{
+			window.location.href = search_url+"/search?keyword=" + key;
+		}
+	});
+
+
+
+	// 热门搜索自动补全
+	    $(".s-combobox-input").bind("input propertychange",function(event) {
+	        var _autoVal = $(this).val();
+	        if(_autoVal == ""){
+	            $(".search_display").show();
+	            $(".search_display_list").hide();
+	        }else{
+	            $(".search_display").hide();
+	            $(".search_display_list").show();
+	        }
+	        // console.log(_autoVal)
+	        // return;
+	        $.ajax({
+	            url: '/index/searchAutoAjax.html',
+	            type: 'POST',
+	            dataType    : "json",
+	            async       : false,
+	            data: {keyword: _autoVal},
+	            success:function(res){
+	                $(".search_display_list").html("");
+	                var data = res.data;
+	                if(data != undefined){
+
+		                for(var i=0; i<data.length; i++){
+		                	if(data[i] != undefined ){
+
+		                    	var _li = '<li class="search_auto"  style="cursor:pointer;">'+data[i]['wd']+'</li>'
+		                	}
+		                    $(".search_display_list").append(_li)
+		                } 
+	                }
+
+	            }
+	        }) 
+	    });
+
+
+	    $(".leftflo").on("click",".search_auto",function(){
+	    	var key = $(this).html();
+	    	key = $.base64.btoa(key);
+	    	key = key.replace(/\+/g, "-");
+	    	if($(this).attr('data-value') == 'store'){
+	    		window.location.href = store_url+'/goods/'+shopid+'.html?n='+key;
+	    	}else{
+	    		window.location.href = search_url+"/search?keyword=" + key;
+	    	}
+	    })
+
+
+
+	$(".nav2 .s-combobox-input").focus(function() {
+		$(".nav2 .s-combobox-placeholder").hide()
+		"" !== $.trim($(".nav2 .s-combobox-input").val()) && $(".nav2 .searchcombox").slideDown('fast');
+	}),
+	$(".nav2 .s-combobox-input").on("change",function() {
+		"" !== $.trim($(".nav2 .s-combobox-input").val()) && $(".nav2 .searchcombox").slideDown('fast');
+		("" == $.trim($(this).val())) && $(".nav2 .searchcombox").slideUp();
+	}),
+	$(".nav2 .s-combobox-input").blur(function() {
+		$(".nav2 .searchcombox").slideUp();
+		"" === $.trim($(this).val()) ? $(".nav2 .s-combobox-placeholder").show() : $(".nav2 .s-combobox-placeholder").hide()
+	});
+
+	$(".s-combobox-input").on('keyup focus',function(e) {
+		if (e.which == 13) {   //Submit Search
+			var key = $.trim($(this).val());
+			if (key == "") {
+				return false;
+			}
+			key = $.base64.btoa(key);
+			key = key.replace(/\+/g, "-");
+			window.location.href = search_url+"/search?keyword=" + key;
+		}
+		var name = $(this).val();
+		if($.trim(name) === ""){
+			return false;
+		}
+		$('.search_goods b').text(""+ name + "");
+		$('.search_store b').text(""+ name + "");
+
+		name = $.base64.btoa(name);
+		name = name.replace(/\+/g,'-');
+		$('.search_goods a').attr('href',search_url+"/search?keyword="+name);
+		$('.search_store a').attr('href',search_url+"/shop/search?keyword="+name);
+	});
+
+	//显示优惠券
+	$('.coupons').click(function(e){
+		e.stopPropagation();
+		if($('.hide_coupons').is(':hidden')){
+			$('.hide_coupons').slideDown();
+			$(this).children('i').removeClass('icon-angle-down').addClass('icon-angle-up');
+		}else{
+			$('.hide_coupons').slideUp();
+			$(this).children('i').removeClass('icon-angle-up').addClass('icon-angle-down');
+		}
+	});
+	$(document).click(function(){
+		$('.hide_coupons').slideUp();
+	});
+
+//领取优惠券
+	$('.hide_coupons .coupon-right').click(function(e){
+		e.stopPropagation();
+		var coupon_num = $(this).attr('data-value');
+		$.ajax({
+			url:"/coupons/gaincoupon/"+coupon_num,
+			type:"get",
+			dataType:"json",
+			success:function(d){
+				if(d.success){
+					show_message(d.data.msg);
+				}else{
+					window.location.href = returnurl + "/login.html?return_url=" + currenturl;
+				}
+			}
+		});
+	});
+
+});

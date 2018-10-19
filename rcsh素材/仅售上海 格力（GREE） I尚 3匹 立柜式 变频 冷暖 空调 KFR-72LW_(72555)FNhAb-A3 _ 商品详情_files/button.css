@@ -1,0 +1,131 @@
+.clearfix:after {
+	height: 0; content: "."; clear: both; display: block; visibility: hidden;
+}
+.fl{float: left;}
+.fr{float: right;}
+
+
+.button1{
+	padding: 3px 10px;
+	background: #F6AB00;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+.button2{
+	padding: 5px 15px;
+	background: #F6AB00;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+.button3{
+	padding: 8px 30px;
+	background: #F6AB00;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+a.button1:hover,
+a.button2:hover,
+a.button5:hover,
+a.button3:hover{
+	color: white;
+}
+.btn{
+	border-radius: 0px;
+}
+.button4{
+	padding: 3px 10px;
+	background: #37a0db;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+a.button4:hover{
+	color: white;
+}
+
+.avatar48_f img{
+	width:40px;
+	height:40px;
+	border-radius: 40px;
+	float: left;
+}
+
+.bgray_f{
+	padding-left: 40px;
+}
+.banner .nav .lists ul .coupons{
+ position: relative;
+ width:200px;
+ height: 40px;
+ float: right;
+ display: block;
+ font-size: 15px;
+ text-align: center;
+ border-left: 1px solid #ef8f01;
+ 	line-height: 40px
+}
+.coupons .hide_coupons{
+	position: absolute;
+	top: 40px;
+	/*width:500px;*/
+    left: -10%;
+	margin: 0 auto;
+	z-index: 100;
+	background: #fff;
+	box-shadow:0px 0px 8px #C3C3C3;
+	text-align: left;
+	display: none;
+	overflow: hidden;
+	padding:5px 2.5px ;
+}
+.banner .nav .lists ul li .hide_coupons ul li{
+	width: 237px; height: 105px; float: left;  margin: 5px; border: 1px solid #E0E0E0; padding: 0px;
+}
+.coupons .hide_coupons .money{
+	width: 160px; height: 40px; margin:0  auto;  overflow: hidden;
+}
+.coupon-left{
+	width: 180px; height: 100px; margin: 0 auto; padding: 0px;
+}
+.coupons .hide_coupons .money >div{
+	float: left;
+}
+.coupons .hide_coupons .money .fuhao{
+	width: 15px; height: 30px; line-height: 30px;  font-size: 15px;  color:#52D9D5; padding-bottom: 10px;
+}
+.coupons .hide_coupons .money .shuzi{
+	width: 60px; height: 40px; line-height: 40px; font-size: 30px; font-weight: 700; color:#52D9D5;
+}
+.coupons .hide_coupons .money .xiangq{
+	width: 85px; height: 40px; margin: 0 auto;
+}
+.coupons .hide_coupons .money .xiangq p{
+	width: 85px; height: 40px; line-height: 40px; font-size: 12px; color: #000; margin:0px; padding: 0px;
+}
+.coupons .hide_coupons .jies{
+	width: 160px; height: 60px; margin:0 auto;
+}
+.coupons .hide_coupons .jies p{
+	color: #A4A4A1; width: 160px; height: 20px; line-height: 20px; margin:0 ; padding: 0px; font-size: 10px;
+}
+.coupon-right{
+	width: 45px; height: 103px; background: url(../img/coupon_blue.png); margin: 0 auto; padding: 0;
+}
+.coupon-right p{
+	width: 15px; height: 85px;  margin: 0 auto; margin-top: 15px; text-align: center; font-size: 12px; line-height: 17px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+$(function(){
+   var skuid = $("#sku_id").val();
+   var sku_name =  $("#burialpoint_name").val();
+    sla('track',  'view_sku',  {
+        "sku_id":  skuid,
+        "sku_name":sku_name
+    });
+})

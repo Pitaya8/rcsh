@@ -1,0 +1,489 @@
+$.base64.utf8encode = true;
+var item_url    = $('.item_url').val();
+var i_url       = $('.i_url').val();
+var search_url  = $('.search_url').val();
+var currenturl  = $.base64.btoa(location.href);
+var returnurl   = i_url+'/login.html?return_url=';
+var nologin_url = returnurl + currenturl;
+transfer_url();
+
+function getQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r   = window.location.search.substr(1).match(reg);
+	if (r != null)
+		return unescape(r[2]);
+	return null;
+}
+
+
+
+function SetCookie(name, value){
+	var Days = 30;
+	//此 cookie 将被保存 30 天
+	var exp = new Date();
+	//new Date("December 31, 9998");
+	exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+	document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+}
+//转换登录、登出地址
+function transfer_url(){
+	$('.nologin').attr('href', nologin_url);
+	var logout_url = i_url + '/logout.html?return_url='+currenturl;
+	$('a.Alreadylogin').attr('href',logout_url);
+	$('a.login_link').attr('href',nologin_url);
+}
+
+//右侧侧边栏购物车
+function right_sidebar() {
+	$("#rtbar_cart").load("/cart.html", function(content, status) {
+    console.log(content);
+    console.log(status);
+		if (status == "success") {
+			$(".mini-cart-list-img").remove();
+			$(this).removeClass("tcenter");
+		}
+
+		$('#removecart').click(function() {
+			$('.rtbar_cart').hide();
+		});
+
+		//删除右侧购物车商品
+		$("li i.icon-remove").click(function() {
+			var tempthis = $(this);
+			var value = $(this).attr("data-value");
+			$.ajax({
+				url  : "/deletecart.html",
+				data : {
+					"skuid" : value
+				},
+				dataType : 'json',
+				type     : "post",
+				success : function(d) {
+					if (d.success == 1) {
+						right_cart_num();
+						right_sidebar();
+						tempthis.parents("li").hide();
+					}else if(d.success == -1){
+						location.href=nologin_url;
+					}else{
+						show_message('删除失败，请重新删除！');
+					}
+				}
+			});
+		});
+
+		$("#login_url").attr('href',nologin_url);
+		$("#reload_shopcart").click(function(){ 
+      $('.toolbar-bd').empty().append('<div class="mini-cart-list tcenter" id="rtbar_cart"><img src="https://static.soolife.cn/asset/img/lazy.gif" class="mini-cart-list-img"></div>');
+			// $('.toolbar-bd').empty().append('<div class="mini-cart-list tcenter" id="rtbar_cart"></div>');
+			right_sidebar();
+		});
+	});
+}
+
+/**
+ *右边购物车数量改变
+ **/
+function right_cart_num(){
+	$("#amount").load("/shopcart/cartnum", function(content) {
+		if (parseInt(content) > 99) {
+			$("#amount").text("99+");
+		}else{
+			$("#amount").text(content);
+		}
+	});
+}
+
+function addcart(obj) {
+	if (obj) {
+		if(obj.parents('.item_wrap').find('.s_l_sort').find('li.active').children('img').length > 0){
+			var img = obj.parents('.item_wrap').find('.s_l_sort').find('li.active').children('img');
+		}else{
+			var img = obj.parents('.item_wrap').find('.s_l_pic').find('a').children('img');
+		}
+		obj.parabola({
+			// paraBegin : obj.parents('.detail_top').find('.ac_container').find('li.active').children('img'),
+			paraBegin : img,
+			paraEnd   : '.tipetbar .rtbar-cart',
+			paraBlock : '.cat-thumbnail',
+			afterLoad : true
+		});
+	}
+}
+
+$(function() {
+	$("img").lazyload({
+		event : "sporty",
+		data_attribute : "img",
+		failure_limit : 1,
+	});
+});
+// 懒加载图片
+$(window).bind("load", function() {
+	var timeout = setTimeout(function(){
+		$("img.lazy").trigger("sporty")
+	}, 1000);
+});
+
+//加载右侧栏热销推荐
+function sidebar_recommend() {
+	$(".rtbar-cart-recommend-bd").load("/recommend.html");
+}
+
+$(function() {
+	right_cart_num();
+	var source = getQueryString("s");
+	if (source) {
+		SetCookie('source', source);
+	}
+	$(".rtbar-cart .title").click(function() {
+		if($(".rtbar_cart").is(":hidden")){
+			right_sidebar();
+		}
+	});
+	$("img.lazy").lazyload({
+		failure_limit : 1,
+		event : "scroll",
+		data_attribute : "img"
+	});
+
+//Xie  20160630 Top  search  Area
+    $('body').on('click','.websearch',function(){
+        var key = $(this).parent().parent().find(".code").val();
+    		$.base64.utf8encode = true;
+    		// if (key == "") {
+    		// 	return false;
+    		// }
+    		key = $.base64.btoa(key);
+    		key = key.replace(/\+/g, "-");
+    		window.location.href = "/search?keyword=" + key+"&type=2";
+    });
+    //搜索商品
+  	$(".mallSearch-input button,.websearch .icon-search").click(function() {
+      		var key = $(this).parent().parent().find(".code").val();
+      		$.base64.utf8encode = true;
+      		if (key == "") {
+      			 key = $(this).parent().parent().find(".code").attr('placeholder');
+      		}
+      		key = $.base64.btoa(key);
+      		key = key.replace(/\+/g, "-");
+      		window.location.href = "/search?keyword=" + key+"&type=2";
+  	});
+    var isshop = +getQueryString("type");
+   if(isshop == 1){//是店铺1
+      $(".shoper").css("background","#f6ab00");
+      $(".stored").css("background","#37a0db");
+      //店铺框显示
+      $(".mallSearch-form").find("fieldset:last").show();
+      //商品框隐藏 
+      $(".mallSearch-form").find("fieldset:first").hide(); 
+
+   }else if(isshop == 2){//是商品 2
+      $(".shoper").css("background","#37a0db");
+      $(".stored").css("background","#f6ab00");
+      //店铺框隐藏
+      $(".mallSearch-form").find("fieldset:last").hide();
+      //商品框显示 
+      $(".mallSearch-form").find("fieldset:first").show(); 
+   }
+	// 点击店铺 商品切换搜索
+	$(".lj_search span").click(function(){
+		$(this).css("background","#f6ab00").siblings("span").css("background","#37a0db");
+		$("fieldset").eq($(".lj_search span").index(this)).show().siblings("fieldset").hide();
+		$("fieldset").eq($(".lj_search span").index(this)).siblings("fieldset").find("input").val('');
+		$(".search_display_list").empty();
+	})
+
+	// 热门搜索自动补全
+	// 商品自动补全
+    $(".s-combobox-input").bind("input propertychange",function(event) {
+        var _autoVal = $(this).val();
+        if(_autoVal == ""){
+            $(".search_display").show();
+            $(".search_display_list").hide();
+        }else{
+            $(".search_display").hide();
+            $(".search_display_list").show();
+        }
+        // console.log(_autoVal)
+        $.ajax({
+            url: '/search/searchAutoAjax.html',
+            type: 'POST',
+            dataType    : "json",
+            async       : false,
+            data: {keyword: _autoVal},
+            success:function(res){
+            	// console.log(res)
+                $(".search_display_list").html("");
+                var data = res.data;
+                for(var i=0; i<data.length; i++){
+                    var _li = '<li class="search_auto"  style="cursor:pointer;">'+data[i]['wd']+'</li>'
+                    $(".search_display_list").append(_li)
+                } 
+            }
+        }) 
+    });
+
+    //店铺自动补全
+    $(".s-combobox-inputshop").bind("input propertychange",function(event) {
+        var _autoVal = $(this).val();
+
+        if(_autoVal == ""){
+            $(".search_display").show();
+            $(".search_display_list").hide();
+        }else{
+            $(".search_display").hide();
+            $(".search_display_list").show();
+        }
+        //console.log(_autoVal)
+        $.ajax({
+            url: '/search/searchShopAjax.html',
+            type: 'POST',
+            dataType    : "json",
+            async       : false,
+            data: {keyword: _autoVal},
+            success:function(res){
+            	//console.log(res)
+                $(".search_display_list").html("");
+                var data = res.data;
+                var _li = '';
+                for(var i=0; i<data.length; i++){
+                     _li += '<li class="search_autoshop"  style="cursor:pointer;">'+data[i]['shop_name']+'</li>'
+                } 
+                    $(".search_display_list").append(_li)
+            }
+        }) 
+    });
+
+    //店铺搜索显示框
+    $(".leftflo").on("click",".search_autoshop",function(){
+    	
+    	var key = $(this).html();
+    	$.base64.utf8encode = true;
+    	// if (key == "") {
+    	// 	return false;
+    	// }
+    	key = $.base64.btoa(key);
+    	key = key.replace(/\+/g, "-");
+    	window.location.href = "/shop/search?keyword=" + key+"&type=1";
+
+    })
+   
+
+    /**
+     *  商品键盘事件效果
+     */ 
+    var num = 0;
+    var index = -1;//当前显示框第一个  
+    var search_show = $(".search_display_list");
+    $(".s-combobox-input").keydown(function(event){  
+          //判断当event.keyCode 为38时（即上方面键） ;  
+          //判断当event.keyCode 为40时（即下方面键） ;  
+         //判断当event.keyCode 为130时（即回车方面键） ;
+  		$(".search_display_list").show();
+
+        if(event.keyCode == 38){ //上键  
+        	num = 1;
+        	 index--; 
+        	  var li = search_show.find("li:eq(" + index + ")");  
+ 		 	li.addClass("lj_color");
+ 			li.siblings().removeClass("lj_color"); 
+             // alert(111);
+          }else if (event.keyCode == 40){ //下键 
+          	num = 1;
+           	index++;  
+           	if (index == 15) index = 1; //到底了
+           	 var li = search_show.find("li:eq(" + index + ")");  
+ 			li.addClass("lj_color");
+ 			li.siblings().removeClass("lj_color"); 
+             // alert(222); 
+          }else if(event.keyCode == 13){ //回车键
+          	 search_show.find("li").each(function(index, el) {
+          	 	if($(this).hasClass("lj_color")){
+          	 		 var keystore =  $(this).text();
+          	 		if(keystore !='' && keystore != $(".code").val()){ 
+	          	 		$.base64.utf8encode = true; 
+	          	 		keystore = $.base64.btoa(keystore);
+	    				keystore = keystore.replace(/\+/g, "-");
+	    				window.location.href = "/search?keyword=" + keystore+"&type=2";
+	          	 		console.log(keystore);
+          	 		}
+          	 	}
+          	 }); 
+        } 
+   //      var li = search_show.find("li:eq(" + index + ")");  
+ 		// li.addClass("lj_color");
+ 		// li.siblings().removeClass("lj_color"); 
+     }); 
+
+    /**
+    * 店铺键盘事件效果
+    * 
+    */
+   
+   	var indexs =1;//当前显示框第一个  
+    var search_shows = $(".search_display_list");
+    $(".s-combobox-inputshop").keydown(function(event){  
+          //判断当event.keyCode 为38时（即上方面键） ;  
+          //判断当event.keyCode 为40时（即下方面键） ;  
+         //判断当event.keyCode 为130时（即回车方面键） ;
+  		$(".search_display_list").show();
+
+        if(event.keyCode == 38){ //上键  
+        	 num = 1;
+        	 indexs--; 
+             // alert(111);
+          }else if (event.keyCode == 40){ //下键 
+          	num = 1;
+           	indexs++;  
+           	if (indexs == 15) index = 1; //到底了
+             // alert(222); 
+          }else if(event.keyCode == 13){ //回车键
+          	 search_shows.find("li").each(function(index, el) {
+          	 	if($(this).hasClass("lj_color")){
+          	 		var keyshop =  $(this).text();
+          	 		$.base64.utf8encode = true; 
+          	 		keyshop = $.base64.btoa(keyshop);
+    				keyshop = keyshop.replace(/\+/g, "-");
+    				window.location.href = "/shop/search?keyword=" + keyshop+"&type=1";
+          	 		console.log(keyshop);
+          	 	}
+          	 }); 
+        } 
+        var lis = search_shows.find("li:eq(" + indexs + ")");  
+ 		    lis.addClass("lj_color");
+ 		    lis.siblings().removeClass("lj_color"); 
+     }); 
+    
+
+
+    //店铺搜索
+    $(".mallSearch-inputshop button,.websearch .icon-search").click(function() {
+		var key = $(this).parent().parent().find(".code").val();
+		$.base64.utf8encode = true;
+		// if (key == "") {
+		// 	return false;
+		// }
+		key = $.base64.btoa(key);
+		key = key.replace(/\+/g, "-");
+		window.location.href = "/shop/search?keyword=" + key+"&type=1";
+	});
+
+
+    //商品自动补全显示框点击跳转
+    $(".leftflo").on("click",".search_auto",function(){
+    	
+    	var key = $(this).html();
+    	$.base64.utf8encode = true;
+    	// if (key == "") {
+    	// 	return false;
+    	// }
+    	key = $.base64.btoa(key);
+    	key = key.replace(/\+/g, "-");
+    	window.location.href = "/search?keyword=" + key+"&type=2";
+
+    })
+
+
+    	// 热门搜索自动补全
+        $(".goodsinput .code").bind("input propertychange",function(event) {
+            var _autoVal = $(this).val();
+            // console.log(_autoVal);
+            if(_autoVal == ""){
+                $(".search_display").show();
+                $(".search_display_list").hide();
+            }else{
+                $(".search_display").hide();
+                $(".search_display_list").show();
+            }
+            // console.log(_autoVal)
+            $.ajax({
+                url: '/search/searchAutoAjax.html',
+                type: 'POST',
+                dataType    : "json",
+                async       : false,
+                data: {keyword: _autoVal},
+                success:function(res){
+                	// console.log(res)
+                    $(".search_list").html("");
+                    var data = res.data;
+                    if(data != undefined){
+
+	                    for(var i=0; i<data.length; i++){
+	                    	if(data[i] != undefined){
+
+	                        	var _li = '<li class="search_auto"  style="cursor:pointer;">'+data[i]['wd']+'</li>'
+	                    	}
+	                        $(".search_list").append(_li)
+	                    } 
+                    }
+                }
+            }) 
+        });
+        // 商品搜索自动补全弹出框
+        $(".rightflo").on("click",".search_auto",function(){
+        	
+        	var key = $(this).html();
+        	$.base64.utf8encode = true;
+        	// if (key == "") {
+        	// 	return false;
+        	// }
+        	key = $.base64.btoa(key);
+        	key = key.replace(/\+/g, "-");
+        	window.location.href = "/search?keyword=" + key+"&type=2";
+
+        })
+        $(".rightflo").find(".websearch").click(function(event) {
+        	var _val = $(this).val();
+        	// console.log(_val)
+        	$.base64.utf8encode = true;
+        	key = $.base64.btoa(_val);
+        	key = key.replace(/\+/g, "-");
+        	// console.log(key)
+        	return;
+        	window.location.href = "/search?keyword=" + key+"&type=2";
+        });
+
+
+	$(".nav2 .s-combobox-input").focus(function() {
+		$(".nav2 .s-combobox-placeholder").hide()
+		"" !== $.trim($(".nav2 .s-combobox-input").val()) && $(".nav2 .searchcombox").slideDown('fast');  //Xie Add
+	}),
+	$(".nav2 .s-combobox-input").keyup(function() {
+		"" !== $.trim($(".nav2 .s-combobox-input").val()) && $(".nav2 .searchcombox").slideDown('fast');
+		"" === $.trim($(this).val())  && $(".nav2 .searchcombox").slideUp();
+	}),
+	$(".nav2 .s-combobox-input").blur(function() {
+		$(".nav2 .searchcombox").slideUp();
+		"" === $.trim($(this).val()) ? $(".nav2 .s-combobox-placeholder").show() : $(".nav2 .s-combobox-placeholder").hide()
+	});
+
+	$(".code").on('keyup focus',function(e) {
+		if (num == 0 && e.which == 13) {   //Submit search
+			var key = $.trim($(this).val());
+			if (key == "") {
+				return false;
+			} 
+			$.base64.utf8encode = true;
+			key = $.base64.btoa(key);
+			key = key.replace(/\+/g, "-");
+			window.location.href = "/search?keyword=" + key+"&type=2";
+		}
+		var name = $(this).val();
+
+		if($.trim(name) === ""){
+			return false;
+		}
+		$('.search_goods b').text(""+ name + "");
+		$('.search_store b').text(""+ name + "");
+		$.base64.utf8encode = true;
+		name = $.base64.btoa(name);
+		name = name.replace(/\+/g,'-');
+
+		$('.search_goods a').attr('href',"/search?keyword="+name+"&type=2");
+		$('.search_store a').attr('href',"/shop/search?keyword="+name+"&type=1");
+	});
+//Top search Area End
+});
+
+

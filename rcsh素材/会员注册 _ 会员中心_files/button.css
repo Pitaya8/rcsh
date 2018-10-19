@@ -1,0 +1,43 @@
+.button1{
+	padding: 3px 10px;
+	background: #F6AB00;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+.button2{
+	padding: 5px 15px;
+	background: #F6AB00;
+	color: white;
+	border: none;
+	cursor: pointer;
+	margin-top:55px;
+}
+.button3{
+	padding: 8px 30px;
+	background: #F6AB00;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+a.button1:hover,
+a.button2:hover,
+a.button5:hover,
+a.button3:hover{
+	color: white;
+}
+.btn{
+	border-radius: 0px;
+}
+.button4{
+	padding: 3px 10px;
+	background: #37a0db;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+a.button4:hover{
+	color: white;
+}
+
+

@@ -1,0 +1,18 @@
+$('#register_phone').blur(function(){
+	if(/\d{11}/g.test(register_phone.value)){
+		ajax('GET','api/database/insert_user.php','phone='+register_phone.value,
+			function(str){
+			phone_tip.innerText=str;
+		})
+	}else{
+		phone_tip.innerText='请输入11位数字';
+	}
+})
+$('#register_password1').blur(function(){
+	if(register_password.value!=''){
+		console.log('123')
+		
+	}else{
+		register_password_tip.innerHTML='请输入密码';
+	}
+})

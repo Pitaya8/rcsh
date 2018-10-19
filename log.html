@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>会员登陆|会员中心</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index/log_register.css"/>
+		<script type="text/javascript" src="js/cookie.js"></script>
+	</head>
+	<body>
+		<div id="log_header" class="container">
+			<a href="index.html"><img src="img/header/logo.gif"/></a>
+			<img src="img/log/enter(2)_03.png"/>
+		</div>
+		
+		
+		<div id="log_body" class="container">
+			<div id="log_body_log">
+				<h4>普通登陆</h4>
+				<span><i></i><i></i></span>
+				<input type="text" id="rcsh_username" placeholder="手机/邮箱/用户名"/>
+				<i class="username_i"></i>
+				<div id="log_username_tip">
+					
+				</div>
+				<br>
+				
+				
+				<input type="password" id="rcsh_password" placeholder="密码"/>
+				<i class="password_i"></i>
+				<div id="log_password_tip">
+					
+				</div>
+				
+				<br>
+				<input type="checkbox" id="remen_password"/>记住密码
+				<span class="forget_passw">忘记密码</span><br>
+				<input type="button" value="登陆" id="log_btn">
+				<p>没有账号？30S快速<a href="register.html">注册</a></p>
+				<p>使用合作网站账号登陆:</p>
+				<span><i></i>QQ</span>
+				<span><i></i>微信</span>				
+			</div>
+		</div>
+		
+		
+		
+		<div id="rcsh_footer">
+						<div id="rcsh_footer_top" class="container">
+				<ul id="rcsh_footer_top_ul">
+					<li>
+						<span><i class='iconfont icon-shafa'>新手指南</i></span>
+						<ol>
+							<li>免费注册</li>
+							<li>搜索商品</li>
+							<li>购买流程</li>
+							<li>评论晒单</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>配送方式</i></span>
+						<ol>
+							<li>配送方式</li>
+							<li>配送事件</li>
+						</ol>
+					</li>
+					<li>
+						</i><span><i class='iconfont icon-shafa'>支付方式</i></span>
+						<ol>
+							<li>支付宝支付</li>
+							<li>银联卡支付</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>售后服务</i></span>
+						<ol>
+							<li>售后政策</li>
+							<li>退款说明</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>招商合作</i></span>
+						<ol>
+							<li>商家入驻</li>
+							<li>企业会员</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>购物指南</i></span>
+						<ol>
+							<li>星币说明</li>
+							<li>交易条款</li>
+							<li>购物流程</li>
+							<li>注册流程</li>
+							<li>常见问题</li>
+						</ol>
+					</li>
+				</ul>
+			</div>
+			<div id="rcsh_footer_mid">
+				<div class="container" >
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				
+			</div>
+			<div id="rcsh_footer_bottom" class="container">
+				<ul>
+					<li>关于我们</li>
+					<li>联系我们</li>
+					<li>品牌介绍</li>
+					<li>商家入驻</li>
+					<li>友情链接</li>
+					<li>法律声明</li>
+					<li>出版物许可证</li>
+				</ul>
+				<p>©&nbsp;2016-2018&nbsp;如此生活&nbsp;版权所有&nbsp;沪ICP备11038000号-2</p>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+	var cookiename=0;
+	
+	$('rcsh_username').blur(function(){
+		log_username_tip.innerHTML='';
+	})
+	
+	$('#log_btn').click(function(){
+		var log_username=rcsh_username.value;
+		var log_password=rcsh_password.value;
+		
+		if(log_username==''){
+			log_username_tip.innerHTML='请输入账号';
+		}else if(log_password==''){
+			log_username_tip.innerHTML='';
+			log_password_tip.innerHTML='请输入密码';
+		}else{
+			log_username_tip.innerHTML='';
+			log_password_tip.innerHTML='';
+			ajax('POST',
+				'api/database/search_user.php',
+				'username='+log_username+'&password='+log_password,
+				function(str){
+					var data=JSON.parse(str);
+					if(data.length==0){
+						log_username_tip.innerHTML='该账号还未注册';
+					}else{
+						if(log_password==data[0].password){
+							if(remen_password.checked){
+								setCookie('username2',rcsh_username.value,7)
+								setCookie('username',rcsh_username.value,7)
+							}
+							setCookie('username',rcsh_username.value,7)
+							window.location.href = "index.html";
+							
+						}else{
+							log_password_tip.innerHTML='密码错误';
+						}
+					}
+					
+				}
+			)
+		}
+	})
+
+</script>

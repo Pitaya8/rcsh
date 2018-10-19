@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/details/details.css"/>
+		
+		<script type="text/javascript" src="js/cookie.js"></script>
+		
+		<!--放大镜-->
+		<link rel="stylesheet" type="text/css" href="css/details/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="css/details/htmleaf-demo.css"/>
+		<link rel="stylesheet" type="text/css" href="css/details/jquery.exzoom.css"/>
+		<style type="text/css">
+		    #exzoom {
+		        width: 450px;
+		        margin: 20px auto;
+		        margin-left: 0;
+		    }
+		    .exzoom_img_box{
+		    	border: 1px solid #ccc;
+		    }
+		</style>
+		
+		
+		
+	</head>
+	<body>
+		<div id="header">
+			<div id="header_header">
+				<!--top-->
+				<div id="header_top"  class="container">
+					<span id="show_username" style="color:black;cursor: default;">Hi,欢迎来到如此生活</span>&nbsp;&nbsp;
+					<a href="log.html"><span class="log_username">登录</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="register.html"><span class="log_register">免费注册&nbsp;&nbsp;|&nbsp;</span></a>
+					<i class='iconfont icon1'>&#xe64f;</i>&nbsp;<i class='iconfont icon2'>&#xe620;</i>
+					
+					<ul>
+						<li>我的生活
+							<i class="iconfont">&#xe633;</i>&nbsp;|
+							<ul>
+								<li>我的订单</li>
+								<li>星币查询</li>
+								<li>余额查询</li>
+								<li>我的优惠券</li>
+							</ul>
+						</li>
+						<li>商家入驻&nbsp;|</li>
+						<li>帮助中心
+							<i class="iconfont">&#xe633;</i>&nbsp;|
+							<ul>
+								<li>帮助首页</li>
+								<li>售后服务</li>
+							</ul>
+						</li>
+						<li>更多导航
+							<i class="iconfont">&#xe633;</i>&nbsp;
+							<ul>
+								<li>首页</li>
+								<li>海外精品</li>
+								<li>星范儿</li>
+								<li>星特惠</li>
+								<li>星粉专区</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--mid-->
+			<div id="header_mid" class="container">
+				<a href="index.html"><i><img src="img/header/logo.gif"></i></a>
+				<div>
+					<span>商品</span><span>店铺</span><br>
+					<input type="text" id="search_input" placeholder="格力">
+					<input type="button" id="search_btn" value="搜索">
+					<input type="button" id="search_this_store_btn" value="搜本店">
+					<ul>
+						<li>山茶油</li>
+						<li>iphone X</li>
+						<li>COACH</li>
+						<li>韩都衣舍</li>
+						<li>ARTIART不倒杯</li>
+						<li>清风</li>
+						<li>三只蚂蚁</li>
+						<li>卡罗特</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="details_storelogo" class="container">
+			<img src="img/details/store_logo.jpg"/>
+		</div>
+		
+		<div id="details_body_nav" class="container">
+			<ul>
+				<li>首页</li>
+				<li>店铺全部分类</li>
+				<li>所有宝贝</li>
+				<li>售后服务</li>
+				<li></li>
+				<li>店铺优惠券</li>
+				<li>关注店铺</li>
+			</ul>
+		</div>
+		
+		<div id="details_body" class="container">
+			<h4></h4>
+			<!--放大镜模块-->
+			<div id="details_body_top">
+				<div class="exzoom" id="exzoom">
+				    <!--大图区域-->
+				    <div class="exzoom_img_box">
+				        <ul class='exzoom_img_ul'>
+				            <li><img src="img/details/photos/img01.jpg"/></li>
+				            <li><img src="img/details/photos/img02.jpg"/></li>
+				            <li><img src="img/details/photos/img03.jpg"/></li>
+				            <li><img src="img/details/photos/img04.jpg"/></li>
+				            <li><img src="img/details/photos/img05.jpg"/></li>
+				            <li><img src="img/details/photos/img06.jpg"/></li>
+				            <li><img src="img/details/photos/img07.jpg"/></li>
+				            <li><img src="img/details/photos/img08.jpg"/></li>
+				        </ul>
+				    </div>
+				    <!--缩略图导航-->
+				    <div class="exzoom_nav"></div>
+				    <!--控制按钮-->
+				    <p class="exzoom_btn">
+				        <a href="javascript:void(0);" class="exzoom_prev_btn"> &lt; </a>
+				        <a href="javascript:void(0);" class="exzoom_next_btn"> &gt; </a>
+				    </p>
+				</div>
+			
+				<!--放大镜的右边模块-->
+				<div id="details_info">
+					<div id="details_info_title">
+						
+					</div>
+					<div id="details_info_price">
+						<!--<span>￥</span>12321.00 <span>如此生活价</span>-->
+					</div>
+					<div id="details_info_other">
+						<ul>
+							<li><h5>评价</h5><img src='img/details/starts.png'>
+								<br>
+								<h5>送至</h5>
+								<select>
+									<option value="上海 静安区">上海 静安区</option>
+								</select>
+							</li>
+							<li>
+								<h5>规格</h5>
+								<ol>
+									<li>2 匹</li>
+									<li>3匹&nbsp;380V电压</li>
+									<li>3匹&nbsp;220V电压</li>
+								</ol>
+								<br>
+								<h5>数量</h5>
+								<button>-</button>
+								<button>1</button>
+								<button>+</button><br><br>
+								<input type="button" id="add_shop_cart" value="加入购物车">
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				
+			</div>
+			
+			<div id="details_body_imgbody">
+				<div id="details_body_imgbody_top">
+					<h4>商品详情</h4>
+				</div>
+				<div id="details_body_imgbody_right">
+					<ul>
+						<li>店铺信息</li>
+						<li><img class="details_body_imgbody_right_logo" src='img/details/gl_store_logo.jpg'></li>
+						<li>
+						</li>
+						<li>
+							<h5>商品包装：</h5><img src='img/details/starts.png'><br>
+							<h5>送货速度：</h5><img src='img/details/starts.png'><br>
+							<h5>配送服务：</h5><img src='img/details/starts.png'>
+							
+						</li>
+						<li>
+							<input type="button" value="进入店铺">
+							<input type="button" value="在线客服">
+						</li>
+						<li>
+							<img src="img/details/erweima.jpg"/>
+						</li>
+					</ul>
+				</div>
+				<div id="details_body_imgbody_body">
+				</div>
+				
+				
+			</div>
+		</div>
+		
+		
+		<div id="rcsh_footer">
+			<div id="rcsh_footer_top" class="container">
+				<ul id="rcsh_footer_top_ul">
+					<li>
+						<span><i class='iconfont icon-shafa'>新手指南</i></span>
+						<ol>
+							<li>免费注册</li>
+							<li>搜索商品</li>
+							<li>购买流程</li>
+							<li>评论晒单</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>配送方式</i></span>
+						<ol>
+							<li>配送方式</li>
+							<li>配送事件</li>
+						</ol>
+					</li>
+					<li>
+						</i><span><i class='iconfont icon-shafa'>支付方式</i></span>
+						<ol>
+							<li>支付宝支付</li>
+							<li>银联卡支付</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>售后服务</i></span>
+						<ol>
+							<li>售后政策</li>
+							<li>退款说明</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>招商合作</i></span>
+						<ol>
+							<li>商家入驻</li>
+							<li>企业会员</li>
+						</ol>
+					</li>
+					<li>
+						<span><i class='iconfont icon-shafa'>购物指南</i></span>
+						<ol>
+							<li>星币说明</li>
+							<li>交易条款</li>
+							<li>购物流程</li>
+							<li>注册流程</li>
+							<li>常见问题</li>
+						</ol>
+					</li>
+				</ul>
+			</div>
+			<div id="rcsh_footer_mid">
+				<div class="container" >
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				
+			</div>
+			<div id="rcsh_footer_bottom" class="container">
+				<ul>
+					<li>关于我们</li>
+					<li>联系我们</li>
+					<li>品牌介绍</li>
+					<li>商家入驻</li>
+					<li>友情链接</li>
+					<li>法律声明</li>
+					<li>出版物许可证</li>
+				</ul>
+				<p>©&nbsp;2016-2018&nbsp;如此生活&nbsp;版权所有&nbsp;沪ICP备11038000号-2</p>
+			</div>
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script src="js/zoom/jquery-1.11.0.min.js"></script>
+<script src="js/zoom/jquery.exzoom.js"></script>
+<script type="text/javascript">
+    $("#exzoom").exzoom({
+        autoPlay: false,
+    });//方法调用，务必在加载完后执行
+</script>
+<script type="text/javascript" src="js/details.js"></script>

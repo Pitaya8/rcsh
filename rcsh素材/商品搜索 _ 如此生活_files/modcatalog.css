@@ -1,0 +1,218 @@
+﻿@CHARSET "UTF-8";
+
+.navbar .catalogshow{position:relative;}
+
+.navbar .catalogmenu {
+
+background-color:#D09B1B;
+font-size:14px;
+border-left:none;
+border-bottom:none;
+
+}
+
+.navbar .catalogmenu ul>li{border-bottom:none;cursor:pointer;padding:0 25px;margin:0px;height:42px;position:relative}
+.navbar .catalogmenu ul>li span{display:inline-block;margin-right:0px;position:absolute;right:10px;color:#fff}
+.navbar .catalogmenu ul>li a {
+color:#fff;
+}
+
+.navbar .catalogmenu ul>li.selected{
+
+	border:none;
+	color:#ECA000;
+	height:42px;
+
+}
+
+.navbar .catalogmenu ul>li:hover a{color:#ECA000}
+.navbar .catalogmenu ul>li:hover span{color:#ECA000}
+
+
+.catalogpannel .pannel {
+
+width: 736px;
+background: #fff;
+border:none;
+border-right:1px solid #DDDDDD;
+position:absolute;
+left:269px;
+top:0px;
+
+padding-left:0px;
+}
+
+.newads{
+	position:absolute;
+	right:0px;
+	top:0px;
+	width:260px;
+	height:100%;border:1px solid red;
+}
+
+.nivoSlider{
+
+width:260px;
+}
+
+.catalogpannel .pannel .hot-list{
+float: none;
+width: 260px;
+text-align: center;
+
+
+}
+
+.catalogpannel .pannel .hot-list li{
+	
+	width:260px;
+	height:240px;
+	text-align:center;
+}
+.catalogpannel .pannel .tags-bd h5{width:130px;height:30px;margin-right:30px;}
+.catalogpannel .pannel .tags-bd h5 span{display:inline-block;
+float:right;
+line-height:20px;
+height:20px;
+
+
+}
+.catalogpannel .pannel .tags-bd h5 a {
+	float:right;
+color: #333;
+font-size: 12px;
+font-weight:bold;
+text-align:right;
+width:80px;
+}
+.catalogpannel .pannel .tags-bd p {
+width: 460px;
+border-bottom:1px solid #EEEEEE;
+padding-bottom:3px;
+}
+
+.catalogpannel .pannel .tags-bd a {
+display:inline-block;
+padding:1px 5px 1px 0px;
+color:#666666;
+
+}
+
+.catalogpannel .pannel .tags-bd a:hover {
+color:#FF6600;
+
+}
+
+.navbar .catalogmenu ul>li .catalog-icon-healthfood {
+background: url('../img/catalog/healthfood1.png') no-repeat;
+}
+
+
+
+.navbar .catalogmenu ul>li .catalog-icon-facecare {
+background: url('../img/catalog/facecare1.png') no-repeat;
+}
+
+
+
+.navbar .catalogmenu ul>li .catalog-icon-3cdigital {
+background: url('../img/catalog/3cdigital1.png') no-repeat;
+}
+
+.navbar .catalogmenu ul>li .catalog-icon-household {
+background: url('../img/catalog/household1.png') no-repeat;
+}
+
+.navbar .catalogmenu ul>li .catalog-icon-kids {
+background: url('../img/catalog/kids1.png') no-repeat;
+}
+
+.navbar .catalogmenu ul>li .catalog-icon-clothes {
+background: url('../img/catalog/clothes1.png') no-repeat;
+}
+
+.navbar .catalogmenu ul>li .catalog-icon-dailygoods {
+background: url('../img/catalog/dailygoods1.png') no-repeat;
+}
+
+.navbar .catalogmenu ul>li .catalog-icon-home {
+background: url('../img/catalog/home1.png') no-repeat;
+}
+
+.navbar .catalogmenu ul>li .catalog-icon-sports {
+background: url('../img/catalog/sports1.png') no-repeat;
+}
+
+
+.navbar .catalogmenu ul>li .catalog-icon-car {
+background: url('../img/catalog/car1.png') no-repeat;
+}
+
+.navbar .catalogmenu ul>li .catalog-icon-cases {
+background: url('../img/catalog/cases1.png') no-repeat;
+}
+
+.big-pic a{display:block;width:260px;width:440px;background:none;}
+
+/*鍟嗗鍏ラ┗*/
+#header .rightflo{
+	width:290px;
+}
+
+.businessor{
+display: inline-block;
+position: relative;
+float: left;
+height: 30px;	
+}
+
+.businessor a{color:#333333}
+
+.rightflo{position:relative;}
+
+.rightflo .navmore {
+position: absolute;
+right:15px;
+top: 2px;
+width: 77px;
+height: 23px;
+overflow: hidden;
+background-color:#fff;
+cursor: pointer;
+z-index: 80;
+border:1px solid #eee;
+
+}
+
+.rightflo .navmore dt{
+	background-color:#F5F5F5;
+	height:23px;
+	line-height:23px;
+   padding-left:5px;
+	
+}
+.rightflo .navmore.hover{
+	height:auto;
+	border:1px solid #eee;
+}
+
+.rightflo .navmore dd a {
+	display:block;
+   height: 25px;
+   line-height: 25px;
+   text-align:left;
+   padding-left:8px;
+}
+
+.rightflo .navmore dd a:hover{
+	background-color:#37A0DB;
+	color:red;
+}
+
+.another{
+	
+	position:absolute;
+	top:0px;
+	left:420px;
+	
+}

@@ -1,0 +1,36 @@
+window.onload=function(){
+    var liGroup=document.getElementsByClassName("lj_group")[0];
+    var lis=liGroup.getElementsByTagName("li");
+    var main=document.getElementsByClassName("lj_main")[0];
+    var jsNavs=main.getElementsByClassName("lj_nav");
+    for(var i=0;i<jsNavs.length;i++){
+        lis[i].index=i;
+        lis[i].onmouseover=function(){
+            for(var j=0;j<jsNavs.length;j++){
+            jsNavs[j].style.display="none";
+        }
+            jsNavs[this.index].style.display='block'; 
+        }
+        jsNavs[i].onmouseleave=function(){
+            this.style.display="none";
+
+        } 
+    }
+
+}
+$(function(){ 
+	$(".lj_group li").on("mouseover",function(){
+		$(this).addClass('lj_hover');
+		$(this).find(".lj_icon").css("display","none");
+		$(this).siblings().removeClass('lj_hover');
+	})
+	$(".lj_group li").on("mouseout",function(){
+		$(this).removeClass('lj_hover');
+		// $(this).find("p").show(); 
+	})
+	 
+})
+// 点击分类伸展收缩
+$(".catalog ").click(function(){ 
+    $(".lj_main").slideToggle("slow");
+})

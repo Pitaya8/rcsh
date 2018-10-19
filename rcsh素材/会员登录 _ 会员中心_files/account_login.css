@@ -1,0 +1,478 @@
+/*登录部分*/
+
+.l_enterIndex ul li{
+	list-style:none;
+}
+
+.l_enterIndex img{border:0;}
+.l_enterIndex a{
+	text-decoration: none;
+}
+.l_enterIndex .header {
+    height: 100px;
+}
+.l_enterIndex .root61 .w {
+    width: 100%;
+}
+.l_enterIndex .w {
+    width: 990px;margin: 0 auto;
+}
+.l_enterIndex .header .logo {
+	width: 200px;height: 60px;float: left;margin-top: 24px;
+}
+.l_enterIndex .header .logo{
+    background: url(/public/pc/img/account/logo.gif) no-repeat;
+
+}
+.l_enterIndex .header .logo-title {
+	float: left;position: relative;top: 50px;right: 6px;
+}
+.l_enterIndex .wire{
+	position: relative;top: 60px;color:#b7b7b7;
+}
+.l_enterIndex .main_body_content{
+	background:url(/public/pc/img/account/banner_new.jpg) no-repeat;
+	background-position: center top;
+	width:100%;
+	height: 530px;
+	position:relative;
+}
+.l_enterIndex .main_box{
+	position:relative;
+	width:1200px;
+	height: 530px;
+	margin:0 auto;
+}
+.l_enterIndex .enter_content{
+	width: 360px;
+	background: white;
+	position: absolute;
+	top: 75px;
+	right: 0; 
+	padding-bottom: 12px;
+}
+/* .l_enterIndex .enter_content>ul>li{
+	width: 180px;
+	height: 45px;
+	background-color: #e8e8e8;
+	float:left;
+	text-align: center;
+	line-height: 48px;
+	font-family:"Microsoft YaHei","arial";
+	font-size: 16px;
+} */
+.l_enterIndex .enter_content>ul{
+	overflow: hidden;
+	width: 360px;
+	position: relative;
+}
+.l_enterIndex .enter_content>ul>li:first-child{
+	width: 100%;
+	height: 50px;
+	background:url(/public/pc/img/account/ertyu.png) no-repeat; 
+	text-align: center;
+	z-index: 2;
+}
+/*.l_enterIndex .enter_content>ul>li:last-child{
+	width: 15%;
+	height: 50px;
+}*/
+.l_enterIndex .enter_content>ul>li{
+	/*width: 180px;
+	height: 50px;*/
+	/*background-color: #Ec6d65;*/
+	float:left;
+	color:white;
+	text-align: center;
+	line-height: 50px;
+	font-family:"Microsoft YaHei","arial";
+	font-size: 16px;
+}
+.l_enterIndex .enter_content>ul>.btn_normal{
+	/*background-color: #Ec6d65;*/
+	/*background:url(/public/pc/img/account/banner_new.jpg); */
+    color: white;
+    font-size: 20px;
+}
+.btn_move {
+	width:42px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.btn_move img{
+	width: 30px;
+	height: 30px;
+	margin-top: -8px;
+}
+/* .l_enterIndex .enter_content>ul>.btn_normal{
+	background-color: white;
+	    color: #4d4d4d;	
+} */
+.l_enterIndex .enter_content>ul>.btn_normal:hover{
+	cursor:pointer;
+}
+.l_enterIndex .ipt{
+	font-size: 14px;
+	width: 307px;
+	height: 40px;
+	line-height:40px;
+	margin: 18px 0 0 25px;
+	color:#444;
+	text-indent: 37px;
+}
+.l_enterIndex .ipt_checkbox{
+	font-size: 12px;
+	width: 319px;
+	height: 54px;
+	position: relative;
+	left: 28px;
+	top: 25px;
+	color:#5d5e5f;
+}
+.l_enterIndex .ipt_checkbox > a:hover{
+	color:red;
+	text-decoration: underline;
+}
+.l_enterIndex .ipt_checkbox > input{
+	position:relative;
+	bottom: -2px;
+	float:left;
+	margin-right: 5px;
+}
+.l_enterIndex .ipt_checkbox > a{
+	color:#fd5a85;
+	color: #5d5e5f;
+	text-decoration: none;
+	position:absolute;
+	right:16px;
+}
+.l_enterIndex .error_test_box{
+	display: none;
+    width: 307px;
+    height: 50px;
+    margin-left: 25px;
+    margin-top: 18px;
+}
+
+.l_enterIndex .error_test_box .error_testword_text{
+    height: 40px;
+    display: block;
+    float: left;
+    font-size: 14px;
+    text-indent: 11px;
+	width: 152px;
+}
+
+.l_enterIndex .error_test_box .error_test_word{
+    margin-left: 11px;
+    width: 90px;
+    height: 40px;
+    float: left;
+}
+
+.l_enterIndex .error_test_box .changeone{
+    margin-top: 12px;
+    font-size: 12px;
+    display: block;
+    float: left;
+    margin-left: 10px;
+    color: #37A0DB;
+}
+
+
+
+.l_enterIndex .ipt_btn{
+	position: relative;
+	left: 25px;
+	width: 310px;
+	height: 40px;
+	border: 0;
+	border-radius: 3px;
+	font-size: 18px;
+	color: white;
+	font-family: "Microsoft YaHei","arial";
+	background: #fd5a85;
+	text-align: center;
+}
+.l_enterIndex .bottom_word{
+	display: block;
+	margin: 25px 0 0 204px;
+	font-size: 12px;
+	height: 19px;
+	color:#5d5e5f;
+}
+
+.l_enterIndex .bottom_word > a{
+	color:#3EA4E2;
+}
+.l_enterIndex .partner{
+	margin-left: 25px;
+	margin-top: 7px;
+}
+
+.l_enterIndex .partner span{
+    display: block;
+    color: #4d4d4d;
+    font-size: 14px;
+    font-family: "Microsoft YaHei","arial";
+    margin-bottom: 6px;
+}
+.l_enterIndex .partner>ul>li{
+	float: left;
+	margin-right: 16px;
+	font-size: 14px;
+}
+.l_enterIndex .partner>ul>li>a{
+	color:#4d4d4d;
+	font-family:"Microsoft YaHei","arial";
+	font-size: 13px;
+}
+.l_enterIndex .partner>ul>li>a>img{
+	position: relative;
+	top: -1px;
+	margin-right: 2px;
+}
+
+.l_enterIndex .m_ipt_phone{
+	width: 247px;
+	height: 40px;
+	line-height:40px;
+	font-size: 14px;
+	font-family: "Microsoft YaHei","arial";
+	margin-top: 18px;
+    margin-left: 3px;
+	text-indent: 10px;
+	border: 1px #999 solid;
+	color:#444;
+}
+.l_enterIndex .m_ipt_test{
+	color:#4d4d4d;
+	width: 148px;
+	line-height: 40px;
+	height: 40px;
+	font-size: 14px;
+	font-family:"Microsoft YaHei","arial";
+	margin-top: 18px;
+	text-indent: 10px;
+	border: 1px #999 solid;
+}
+.l_enterIndex .move_form{
+	margin-bottom: 3px;
+	color:#4d4d4d;
+	margin-left: 27px;	
+    font-size: 14px;
+}
+.l_enterIndex .test{
+	width: 85px;
+	float: right;
+	margin-top: 25px;
+	margin-right: 23px;
+	height: 40px;
+
+}
+.l_enterIndex .timer{
+	position: relative;
+    top: -7px;
+    left: -15px;
+	width: 95px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 40px;
+	height: 40px;
+	background: #e8e8e8;
+	display: none;
+	color: #444;
+	border-radius: 2px;
+}
+.l_enterIndex .timer_btn{
+	position: relative;
+	top: -7px;
+	left: -15px;
+	width: 95px;
+	height: 40px;
+	background:#ff8dab;
+	border:0;
+	outline:medium;
+	border:none;
+	color:#fff;
+	border-radius: 2px;
+}
+.l_enterIndex .partner_b{
+	margin-left: 25px;
+	margin-top: 8px;
+}
+/*.l_enterIndex .new_tag{
+	position:relative;
+	top: -10px;
+	left: -8px;
+}*/
+.l_enterIndex .btn_move{
+	color: #fd5a85;
+}
+.l_enterIndex .btn_move:hover{
+	cursor: pointer;
+}
+
+.l_enterIndex .ipt_text_img{
+	position: absolute;
+	top: 72px;
+	left: 30px;
+}
+.l_enterIndex .ipt_password_img{
+	position: absolute;
+	top: 131px;
+	left: 30px;
+}
+
+.l_enterIndex .error_text_img{
+	position: absolute;
+	top: 80px;
+	right: 37px;
+	display:none;
+}
+.l_enterIndex .error_password_img{
+	position: absolute;
+	top: 146px;
+	right: 37px;
+	display: none;
+}
+.l_enterIndex .error_phone_img{
+	position: absolute;
+	right: 36px;
+	top: 78px;
+	display:none;
+}
+.l_enterIndex .shadow{
+	width: 355px;
+    height: 3px;
+    box-shadow: 0 15px 25px #333;
+    position: relative;
+    top: 37px;
+    left: 5px;
+}
+#error_msg,#error_msg_one{
+	color:red;
+	margin-left: 40px;
+	margin-top: 10px;
+}
+.error_test_box .error_test_word img{
+	width:100px;
+	height:40px;
+}
+/*二维码扫描*/
+.l_enterIndex .move_main{
+	display: none;
+	width: 360px;
+	height: 240px;
+}
+.normal_main{
+	/*display: none;*/
+	/*padding-top: 60px;*/
+
+}
+.lj_code{
+	width: 100px;
+	height: 100px;
+	/*border: 1px solid red;*/
+	margin: 60px auto 36px;
+	/*display: none;*/
+	position: relative;
+}
+.codes1{
+	width: 100px;
+	height: 100px;
+}
+/*登录成功*/
+.lj_success{
+	width: 66px;
+	height: 139px;
+	margin: 36px auto 10px;
+	display: none;
+}
+.success2{
+	display: none;
+}
+.success2 p:first-child{
+	width: 100%;
+	text-align: center;
+	margin-bottom: 3px;
+} 
+.success2 p:last-child{
+	width: 100%;
+	text-align: center;
+	color: #Ec6d65;
+}
+
+.iphone_socd{
+	margin-left: 94px;
+	height: 31px;
+	width: 60%;
+	/*display: none;*/
+}
+.iphone_socd img{
+	float: left;
+	width: 31px;
+	height: 31px;
+}
+.lj_open{
+	margin-left: 12px;
+	float: left;
+    line-height: 10px;
+ 
+}
+.lj_lead{
+	height: 15px;
+    float: left; 
+    margin-left: 12px;
+}
+.footder{
+	width: 100%;
+	height: 30px;
+	/*border: 1px solid red;*/
+	margin-top: 50px;
+}
+.lj_foot{
+	float: right;
+	width: 40%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.lj_free{
+	margin-left:12px;
+}
+.lj_foot a{
+	color: #333;
+	font-weight: 1000;
+}
+#lose_eff{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+	padding-top: 20px;
+	display: none;
+	position: absolute;
+	top: 0;
+}
+#lose_eff p:first-child{
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+}
+#lose_eff p:last-child{
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	width: 80%;
+	height: 20px;
+	line-height: 20px;
+	background: #Ec6d65;
+	margin: 0 auto;
+	border-radius: 20px;
+}
+.return2:hover{
+	cursor: pointer;
+}
