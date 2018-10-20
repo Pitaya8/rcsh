@@ -22,6 +22,13 @@ $('#list_page_body_content ul').on('mouseout','li',function(){
 	$(this).css('border','1px solid lightgray');
 });
 
+//鼠标滑过右边购物车情况时右上角的×，该元素变色，并删除所选的商品
+$('#header #header_header #header_right_cartShow ol').on('mouseenter','li',function(){
+	console.log(this.children)
+	console.log('到了')
+	$(this).css('color','orange');
+})
+
 
 //通过cookie获取查询商品的关键字
 var string1=getCookie('goods');
@@ -128,20 +135,133 @@ $('#list_page_body_bottom').on('click','li',function(){
 		Render(datas);
 	}
 });
+var target_elem=$('#header #header_right .header_right_two div span').eq(0);
 
-
-//给主体的每个li绑定事件，点击后跳转
+//给主体的每个li绑定事件，点击后跳转或加入购物车
 $('#list_page_body_content').on('click','li',function(){
+	var user_infos_cart=0;
+	body_right_cart_num_change(target_elem);
 	this.onclick=function(e){
 		if(e.target.value=='加入购物车'){
-//			var aa=document.querySelectorALL('#header_right_two div');
-			console.log($('#header_right_two div'));
+			var user_now=getCookie('username'); //当前用户名
+			if(user_now){
+				//主页右边导航栏的购物车数量变化
+				
+				
+				
+				var span_content=target_elem.html();
+				target_elem.html(++span_content);
+				var cart_goodsid=$(this).attr('name'); //取得点击的商品的id
+				var myArr1=new Array();
+				var myArr2=new Array();
+				//点击加入购物车后，存入数据库
+				//先查找数据中用户的购物车情况
+				ajax('POST','api/database/search_user.php',
+					'username='+user_now,
+					function(str){
+						//得到用户的所有信息
+						var user_infos=JSON.parse(str);
+						//得到用户购物车的信息
+						user_infos_cart=user_infos[0];
+						
+						//获得到数据库中购物车商品的所有id
+						var shop_cart=user_infos_cart.shop_cart_goodsid;
+						var cart_goodsid_index=0;
+						//获得数据库中购物车商品的数量
+						var shop_cart_num=user_infos_cart.shop_cart_goodsnum;
+						
+						if(shop_cart!=''){
+							
+							//获得到数据库中购物车商品的各数量
+							shop_cart=shop_cart.split(',');
+							shop_cart_num=shop_cart_num.split(',');
+							cart_goodsid_index=shop_cart.indexOf(cart_goodsid);
+							if(cart_goodsid_index==-1){
+								myArr1.push(','+cart_goodsid);
+								myArr2.push(',1');
+								shop_cart+=myArr1;
+								shop_cart_num+=myArr2;
+								
+							}else{
+								var shop_cart_nums=1+Number(shop_cart_num[cart_goodsid_index]);
+								shop_cart_num[cart_goodsid_index]=shop_cart_nums;
+							}
+						}else{
+							myArr1.push(cart_goodsid);
+							myArr2.push(1);
+							shop_cart=myArr1;
+							shop_cart_num=myArr2;
+						}
+						//将处理好的数据存入数据库
+						ajax('POST','api/database/update_user.php',
+							'username='+user_now+'&shop_cart='+shop_cart+'&shop_cart_num='+shop_cart_num,
+							function(str){
+							}
+						)
+					}
+				)
+			}else{
+				alert('您还未登陆');
+			}
 		}else{
 			window.location.href='details.html';
 			setCookie('goodsid',$(this).attr('name'),7);
 		}
 	}
 });
+
+//函数：主页右边购物车数量的变化
+function body_right_cart_num_change(elem){
+	var user=getCookie('username');
+	if(user){
+		ajax('POST','api/database/search_user.php','username='+user,function(str){
+			var data=JSON.parse(str)[0].shop_cart_goodsnum;
+			data=data.split(',');
+			var num=0;
+			for(var i=0;i<data.length;i++){
+				num+=Number(data[i]);
+			}
+			elem.html(num);
+		})
+	}
+}
+body_right_cart_num_change(target_elem);
+
+//点击右边信息栏的购物车按钮，该页面显示当前购物车情况
+function body_right_cart_show(elem){
+	var user=getCookie('username');
+	var htmlss='';
+	if(user){
+		ajax('POST','api/database/search_user.php','username='+user,function(str){
+			var data=JSON.parse(str);
+			var shop_cart_goodsid=(data[0].shop_cart_goodsid).split(',');
+			var shop_cart_goodsnum=(data[0].shop_cart_goodsnum).split(',');
+
+			for(let i=0;i<shop_cart_goodsid.length;i++){
+				console.log(shop_cart_goodsid[i])
+				ajax('GET','api/database/search_goods1.php',
+				  'keyword='+shop_cart_goodsid[i]+'&type='+'search',
+					function(str){
+						var data1=JSON.parse(str);
+						htmlss+=`
+							<li>
+								<img src="${data1[0].imgsrc}"/>
+								<p>${data1[0].title}</p>
+								<p>数量为<span>${shop_cart_goodsnum[i]}</span>件</p>
+								<p>￥${data1[0].price*shop_cart_goodsnum[i]}</p>
+								<input type="button" class="cart_dele_one" value='×'>
+							</li>
+						`;
+						elem.innerHTML=htmlss;
+					}
+			)
+		}
+	});
+}
+}
+body_right_cart_show(document.querySelector('#header #header_header #header_right_cartShow ol'))
+
+
 
 //cookie的用户名处理
 if(getCookie('username')){
@@ -168,8 +288,17 @@ if(getCookie('username')){
 }
 
 
-
-//点击主体每个li的‘加入购物车’ 后加入购物车
-//$('#list_page_body_content').on('click','input',function(){
-//	console.log($(this))
-//})
+//右边购物车显示的功能
+$('#header #header_right .header_right_two div').eq(0).click(function(){
+	if($('#header #header_header #header_right_cartShow').css('display')=='block'){
+		$('#header #header_header #header_right_cartShow').css('display','none');
+	}else{
+		$('#header #header_header #header_right_cartShow').css('display','block');
+	}
+	var user_now_cart=getCookie('username');
+	if(user_now_cart==undefined){
+		$('#header #header_header #header_right_cartShow ol').css('display','none');
+		$('#header #header_header #header_right_cartShow h6').html('你还没有加入商品，可以先逛逛哦！')
+		$('#header #header_header #header_right_cartShow #goto_cart').css('display','none')
+	}
+});

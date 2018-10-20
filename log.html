@@ -158,7 +158,13 @@
 								setCookie('username',rcsh_username.value,7)
 							}
 							setCookie('username',rcsh_username.value,7)
-							window.location.href = "index.html";
+							if(document.referrer=='http://localhost:1807/section2/code/section2-code/myProject/register.html' ||
+								document.referrer=='http://localhost:1807/section2/code/section2-code/myProject/index.html'
+							){
+								window.location.href = "index.html";
+							}else{
+								history.go(-1);
+							}
 							
 						}else{
 							log_password_tip.innerHTML='密码错误';

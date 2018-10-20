@@ -8,6 +8,80 @@
     color: white; }
   #header #header_nav #header_nav_left_show {
     display: none; }
+#header #header_header #header_right_cartShow {
+  display: none;
+  width: 350px;
+  z-index: 888;
+  height: 447px;
+  background: white;
+  position: fixed;
+  right: 36px;
+  top: 90px;
+  border: 1px solid lightgray;
+  padding: 60px 18px; }
+  #header #header_header #header_right_cartShow h5 {
+    height: 42px;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #F6F6F6; }
+  #header #header_header #header_right_cartShow h6 {
+    font-size: 13px;
+    color: #989898;
+    height: 37px;
+    line-height: 37px; }
+    #header #header_header #header_right_cartShow h6 a {
+      color: #00A1DC;
+      float: right; }
+  #header #header_header #header_right_cartShow ol {
+    overflow: auto;
+    height: 320px; }
+    #header #header_header #header_right_cartShow ol li {
+      width: 310px;
+      height: 82px;
+      border: 1px solid lightgray;
+      border-bottom: 1px dotted lightgray;
+      margin-bottom: 5px;
+      position: relative; }
+      #header #header_header #header_right_cartShow ol li img {
+        width: 80px;
+        height: 80px;
+        margin-left: 2px;
+        float: left;
+        cursor: pointer; }
+      #header #header_header #header_right_cartShow ol li input {
+        width: 13px;
+        height: 13px;
+        font-weight: 700;
+        color: #989898;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: white;
+        cursor: pointer; }
+      #header #header_header #header_right_cartShow ol li p {
+        color: #989898;
+        font-size: 12px;
+        display: inline-block;
+        width: 214px; }
+        #header #header_header #header_right_cartShow ol li p span {
+          color: #FFB63B; }
+      #header #header_header #header_right_cartShow ol li p:nth-of-type(1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer; }
+      #header #header_header #header_right_cartShow ol li p:nth-of-type(3) {
+        font-size: 16px;
+        color: black;
+        margin-top: 18px; }
+  #header #header_header #header_right_cartShow #goto_cart {
+    height: 48px;
+    color: white;
+    font-size: 16px;
+    background: #00A1DC;
+    width: 310px;
+    border-radius: 3px; }
 
 #list_page_body h4 {
   width: 100%;
