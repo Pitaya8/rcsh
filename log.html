@@ -132,7 +132,7 @@
 		log_username_tip.innerHTML='';
 	})
 	
-	$('#log_btn').click(function(){
+	function fn(){
 		var log_username=rcsh_username.value;
 		var log_password=rcsh_password.value;
 		
@@ -174,6 +174,14 @@
 				}
 			)
 		}
+	}
+	$('#log_btn').click(function(){
+		fn()
+	})
+	$('#rcsh_password').keydown(function(e){
+		if(e.keyCode==13){
+			fn()
+		} 
 	})
 
 </script>

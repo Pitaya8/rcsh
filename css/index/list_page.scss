@@ -99,12 +99,14 @@
             }
             
             #goto_cart{
+                cursor: pointer;
                 height:48px;
                 color: white;
                 font-size: 16px;
                 background: #00A1DC;
                 width:310px;
                 border-radius: 3px;
+                
             }
         }
     }
@@ -306,7 +308,7 @@
             flex-wrap:wrap;
             li{
                 width:220px;
-                height:399px;
+                height: 396px;
                 border:1px solid lightgray;
                 float: left;
                 margin-bottom: 20px;

@@ -9,23 +9,23 @@ var five_f_right_ul=document.querySelector('#five_f  #five_f_right ul');
 var you_like_ul=document.querySelector('#you_like>ul');
 ajax('GET','api/database/search_goods.php','',function(str){
 	//1F
-	var data=JSON.parse(str).splice(36,8)
+	var data=JSON.parse(str).splice(36,8);
 	
 	//2F
-	var data1=JSON.parse(str).splice(44,8)
+	var data1=JSON.parse(str).splice(44,8);
 	
 	//3F
-	var data2=JSON.parse(str).splice(52,6)
+	var data2=JSON.parse(str).splice(52,6);
 	
 	//4F
-	var data3=JSON.parse(str).splice(58,8)
+	var data3=JSON.parse(str).splice(58,8);
 	
 	//5F
-	var data4=JSON.parse(str).splice(66,8)
+	var data4=JSON.parse(str).splice(66,8);
 	
 	
 	//you like
-	var data5=JSON.parse(str).splice(74,5)
+	var data5=JSON.parse(str).splice(74,5);
 	
 	var parent_one=("one_f_right_ul").slice(0,5);
 	var parent_two=("two_f_right_ul").slice(0,5);

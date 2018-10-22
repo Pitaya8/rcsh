@@ -56,3 +56,4 @@ register_btn.onclick=function(){
 			register_checkbox_tip.innerHTML='必须同意《用户注册协议》 ！';
 		}
 }
+

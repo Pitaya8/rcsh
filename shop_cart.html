@@ -7,6 +7,9 @@
 		<link rel="stylesheet" type="text/css" href="css/index/index.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index/shop_cart.css"/>
 		<link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css"/>
+		<script type="text/javascript" src="js/cookie.js"></script>
+		<script type="text/javascript" src="js/ajax.js"></script>
+		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
 	</head>
 	<body>
 		<!--header-->
@@ -59,15 +62,63 @@
 					<span>活动</span>
 					请选择平台活动
 				</div>
+				<div id="shop_cart_body_list_content">
+					<h4>
+						<input type="checkbox" id="selec_all">余静家电旗舰店
+					</h4>
+					<div id="shop_cart_body_list_content_list">
+						<ul>
+							<!--<li>
+								<input type="checkbox"  class="good_check"/>
+								<img src="img/list-page/gl1.jpg"/>
+								<p>
+									仅售上海 格力(GREE) 2匹变频 金贝 立柜式家用冷暖空调KFR-50LW/(50578)FNhAd-A1  皓雪白(WIFI)
+								</p>
+								<p>正1匹</p>
+								<p>￥12</p>
+								<span class="one_span">
+									<button class="cutnum">-</button>
+									<input type='text' class="number" value='1'>
+									</input>
+									<button class="addnum">+</button>
+								</span>
+								<span class="good_total">
+									￥12
+								</span>
+								<span class="del_li">删除</span>
+							</li>
+							<li>
+								<input type="checkbox"  class="good_check"/>
+								<img src="img/list-page/gl1.jpg"/>
+								<p>
+									仅售上海 格力(GREE) 2匹变频 金贝 立柜式家用冷暖空调KFR-50LW/(50578)FNhAd-A1  皓雪白(WIFI)
+								</p>
+								<p>正2匹</p>
+								<p>￥12</p>
+								<span class="one_span">
+									<button class="cutnum">-</button>
+									<input type='text' class="number" value='1'>
+									</input>
+									<button class="addnum">+</button>
+								</span>
+								<span class="good_total">
+									￥12
+								</span>
+								<span class="del_li">删除</span>
+							</li>
+						</ul>-->
+					</div>
+				</div>
 			</div>
 			<div id="shop_cart_body_deal">
 				<div id="shop_cart_body_deal_left">
 					<input type="checkbox" id="quanxuan">
 					全选
 					<span>继续购物</span>
+					<span id="delall">删除所选</span>
 				</div>
 				<div id="shop_cart_body_deal_right">
-					<p>已选择<i>0</i>件商品&nbsp;总价(不含运费):<i>￥0</i><p>
+					<p>已选择<i>0</i>件商品&nbsp;总价(不含运费):<i>￥0.00</i><p>
 					<input type="button" value="去结算">
 					<p>已减：-￥0</p>
 				</div>

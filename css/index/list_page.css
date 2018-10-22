@@ -76,6 +76,7 @@
         color: black;
         margin-top: 18px; }
   #header #header_header #header_right_cartShow #goto_cart {
+    cursor: pointer;
     height: 48px;
     color: white;
     font-size: 16px;
@@ -223,7 +224,7 @@
     flex-wrap: wrap; }
     #list_page_body #list_page_body_content ul li {
       width: 220px;
-      height: 399px;
+      height: 396px;
       border: 1px solid lightgray;
       float: left;
       margin-bottom: 20px; }

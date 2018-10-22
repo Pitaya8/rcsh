@@ -57,33 +57,33 @@ body {
     height: 30px;
     line-height: 30px; }
   #shop_cart_body #shop_cart_body_list {
-    height: 125px;
     box-sizing: border-box;
-    background: #F2F2F2;
     margin-bottom: 20px; }
-    #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul {
-      overflow: hidden;
-      height: 40px;
-      padding: 0 15px;
-      box-sizing: border-box; }
-      #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li {
+    #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top {
+      background: #F2F2F2; }
+      #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul {
+        overflow: hidden;
         height: 40px;
-        line-height: 40px;
-        float: left; }
-      #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(1) {
-        margin-left: 20px; }
-      #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(2) {
-        margin-left: 30px; }
-      #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(3) {
-        margin-left: 230px;
-        margin-right: 230px; }
-      #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(5) {
-        margin-left: 80px;
-        margin-right: 50px; }
-      #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(6) {
-        margin-left: 20px; }
-      #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(7) {
-        margin-left: 107px; }
+        padding: 0 15px;
+        box-sizing: border-box; }
+        #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li {
+          height: 40px;
+          line-height: 40px;
+          float: left; }
+        #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(1) {
+          margin-left: 20px; }
+        #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(2) {
+          margin-left: 30px; }
+        #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(3) {
+          margin-left: 230px;
+          margin-right: 230px; }
+        #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(5) {
+          margin-left: 80px;
+          margin-right: 50px; }
+        #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(6) {
+          margin-left: 20px; }
+        #shop_cart_body #shop_cart_body_list #shop_cart_body_list_top ul li:nth-of-type(7) {
+          margin-left: 107px; }
     #shop_cart_body #shop_cart_body_list #shop_cart_body_list_body {
       background: #FFF5E8;
       border: 1px solid #DCDCDC;
@@ -106,6 +106,92 @@ body {
         box-sizing: border-box;
         margin-right: 12px;
         font-size: 12px; }
+    #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content {
+      background: #FCFCFC;
+      border: 1px solid #DCDCDC;
+      margin-top: 20px;
+      overflow: hidden; }
+      #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content h4 {
+        height: 38px;
+        line-height: 38px;
+        padding-left: 20px;
+        box-sizing: border-box; }
+      #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list {
+        overflow: hidden;
+        border-top: 2px solid #00A0DA; }
+        #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul {
+          background: #FFF5E8;
+          overflow: hidden; }
+          #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li {
+            width: 100%;
+            height: 80px;
+            margin-top: 50px;
+            margin-bottom: 10px;
+            margin-left: 51px; }
+            #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li input {
+              float: left;
+              margin-top: 30px;
+              margin-left: -30px; }
+            #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li img {
+              width: 80px;
+              height: 80px;
+              float: left; }
+            #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li p {
+              float: left; }
+            #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li p:nth-of-type(1) {
+              display: inline-block;
+              width: 175px;
+              height: 80px;
+              color: #00A1DC;
+              font-size: 12px;
+              margin: 0 40px;
+              cursor: pointer; }
+            #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li p:nth-of-type(2) {
+              font-size: 12px; }
+            #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li p:nth-of-type(3) {
+              width: 310px;
+              text-align: right;
+              font-size: 12px; }
+            #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li .one_span {
+              float: left;
+              margin-left: 55px;
+              width: 85px;
+              height: 22px;
+              font-size: 12px;
+              border: 1px solid lightgray;
+              box-sizing: border-box;
+              text-align: center; }
+              #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li .one_span .number {
+                width: 36px;
+                height: 20px;
+                float: left;
+                margin-top: 0px;
+                margin-left: 5px;
+                text-align: center;
+                background: #FFF5E8; }
+              #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li .one_span button {
+                width: 18px;
+                height: 20px; }
+              #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li .one_span button:nth-of-type(1) {
+                border-right: 1px solid lightgray;
+                float: left;
+                cursor: pointer; }
+              #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li .one_span button:nth-of-type(2) {
+                border-left: 1px solid lightgray;
+                float: right;
+                cursor: pointer; }
+            #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li span:nth-of-type(2) {
+              color: #E30000;
+              float: left;
+              margin-left: 40px;
+              font-size: 12px;
+              font-weight: 700; }
+            #shop_cart_body #shop_cart_body_list #shop_cart_body_list_content #shop_cart_body_list_content_list ul li span:nth-of-type(3) {
+              font-size: 12px;
+              float: left;
+              float: left;
+              margin-left: 120px;
+              cursor: pointer; }
   #shop_cart_body #shop_cart_body_deal {
     height: 50px;
     box-sizing: border-box;
@@ -120,14 +206,19 @@ body {
       margin-left: 15px; }
       #shop_cart_body #shop_cart_body_deal #shop_cart_body_deal_left input[type='checkbox'] {
         margin-right: 15px; }
-      #shop_cart_body #shop_cart_body_deal #shop_cart_body_deal_left span {
+      #shop_cart_body #shop_cart_body_deal #shop_cart_body_deal_left span:nth-of-type(1) {
         font-size: 12px;
         color: #FFA600; }
+      #shop_cart_body #shop_cart_body_deal #shop_cart_body_deal_left span:nth-of-type(2) {
+        font-size: 12px;
+        color: red;
+        margin-left: 10px;
+        cursor: pointer; }
     #shop_cart_body #shop_cart_body_deal #shop_cart_body_deal_right {
       float: right;
       font-size: 12px; }
       #shop_cart_body #shop_cart_body_deal #shop_cart_body_deal_right p {
-        width: 315px; }
+        width: 395px; }
       #shop_cart_body #shop_cart_body_deal #shop_cart_body_deal_right p:nth-of-type(1) {
         margin-top: 7px; }
         #shop_cart_body #shop_cart_body_deal #shop_cart_body_deal_right p:nth-of-type(1) i {

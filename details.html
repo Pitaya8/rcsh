@@ -31,6 +31,66 @@
 	<body>
 		<div id="header">
 			<div id="header_header">
+				<div id="header_right">
+					<div class="header_right_one">
+					</div>
+					<div class="header_right_two">
+						<div>
+							<i class="iconfont icon-qicheqianlian-1-copy"></i>
+							<p>购<br>物<br>车</p>
+							<span>0</span>
+						</div>
+						
+						<ul>
+							<li><i class='iconfont icon-discountticket'></i>
+								<span>我的资产
+									<i></i>
+								</span>
+							</li>
+							<li><i class='iconfont icon-aixin'></i>
+								<span>关注的商品
+									<i></i>
+								</span>
+							</li>
+							<li><i class='iconfont icon-xing'></i>
+								<span>关注的店铺
+									<i></i>
+								</span>
+							</li>
+							<li><i class='iconfont icon-yanjing-'></i>
+								<span>历史纪录
+									<i></i>
+								</span>
+							</li>
+							<li><i class='iconfont icon-zhanghu'></i>
+								<span>客服
+									<i></i>
+								</span>
+							</li>
+							<li><i class='iconfont icon-dingbu'></i>
+								<span>返回顶部
+									<i></i>
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div id="header_right_cartShow">
+					<h5>购物车</h5>
+					<h6>最新加入的宝贝<a href="shop_cart.html">查看全部</a></h6>
+					<ol>
+						<!--<li>
+							<img src="img/list-page/gl10.jpg"/>
+							<p>格里戈里戈里格里戈里戈里格里戈里戈里格</p>
+							<p>数量为<span>1</span>件</p>
+							<p>￥3112</p>
+							<input type="button" id="cart_dele_one" value='×'>
+						</li>
+						<li></li>-->
+					</ol>
+					<input type="button" id="goto_cart" value="去购物车结算" />
+				</div>
 				<!--top-->
 				<div id="header_top"  class="container">
 					<span id="show_username" style="color:black;cursor: default;">Hi,欢迎来到如此生活</span>&nbsp;&nbsp;
@@ -160,9 +220,9 @@
 								</ol>
 								<br>
 								<h5>数量</h5>
-								<button>-</button>
-								<button>1</button>
-								<button>+</button><br><br>
+								<button class="cutnum">-</button>
+								<button class="number">1</button>
+								<button class="addnum">+</button><br><br>
 								<input type="button" id="add_shop_cart" value="加入购物车">
 							</li>
 						</ul>
